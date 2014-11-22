@@ -1,0 +1,38 @@
+category
+	-title
+	-questionCounter
+	
+question
+	-title
+	-content
+	-author (pointer)
+	-viewCounter
+	-rating
+	-category (pointer)
+	-status
+
+answer
+	-author (pointer)
+	-content 
+	-rating
+	-question(pointer)
+
+tag
+	-title
+	-counter
+	
+tagsMeta 
+	-tag
+	-question
+
+user
+	-firstName
+	-lastName
+	-username
+	-aboutMe
+	-email
+	-rating
+	-password
+	-accountType
+	
+
