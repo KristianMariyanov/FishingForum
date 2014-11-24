@@ -50,7 +50,9 @@
                         "aboutMe":aboutMe
                     }),
                     success: function(data){
+                        console.log(data);
                         console.log(data.objectId);
+                        setRole(data);
                     },
                     error: function(err){
                         console.log(err);
@@ -58,21 +60,31 @@
                 });
             });
 
-            console.log(JSON.stringify({"users": { "__op": "AddRelation","objects": [{"__type": "Pointer","className": "_User","objectId": "sad"}]}}));
-
             function setRole(data){
+                $.support.cors = true;
                 $.ajax({
                     method: "PUT",
                     contentType: "application/json",
-                    data: JSON.stringify({"users": { "__op": "AddRelation","objects": [{"__type": "Pointer","className": "_User","objectId": data.objectId}]}}),
-                    url: 'https://api.parse.com/1/roles/fMLotQQa9j',
+                    data: JSON.stringify({
+                        "users":
+                            {
+                                "__op":"AddRelation",
+                                "objects":[
+                                    {   "__type":"Pointer",
+                                        "className":"_User",
+                                        "objectId":data.objectId
+                                    }]
+                            }}),
+                    url: 'https://api.parse.com/1/classes/_Role/fMLotQQa9j',
                     success: function(data){
-                        console.log('Role: ' + data)
+                        console.log('Successfully assigned a role!');
                     },
                     error: function(err){
+                        console.log("Fail!!!! --");
                         console.log(err);
                     }
-            })}
+                });
+            }
 
         </script>
 
