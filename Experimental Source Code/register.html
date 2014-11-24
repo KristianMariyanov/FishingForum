@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script src="jquery-2.1.1.min.js"></script>
+    </head>
+    <body>
+        <input type="text" id="username"/><br>username
+        <input type="text" id="password"/><br>pass
+        <input type="text" id="email"/><br>mail
+        <input type="text" id="firstName"/><br>first
+        <input type="text" id="lastName"/><br>last
+        <input type="text" id="aboutMe"/><br>about
+
+        <button id="registerBtn">Register</button>
+
+        <script>
+
+
+
+            $.ajaxSetup({
+                headers: {
+                    "X-Parse-Application-Id": "qMgTURpDZUZXbS8OyDfvICSCMS5YkkpuMn9vIlco",
+                    "X-Parse-REST-API-Key": "KOWQQ2S9fB5Hx7bNjiv4bskSQrSuZvSniHUpF4Bb"
+                }
+            });
+
+            $("#registerBtn").on('click', function getEvents(){
+
+            var username= $("#username").val();
+            var password= $("#password").val();
+            var email= $("#email").val();
+            var firstName = $("#firstName").val();
+            var lastName= $("#lastName").val();
+            var aboutMe= $("#aboutMe").val();
+
+            var createdUserId = "";
+
+            $.ajax({
+                    method: "POST",
+                    url: 'https://api.parse.com/1/users',
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        "username":username,
+                        "password":password,
+                        "firstName": firstName,
+                        "lastName":lastName,
+                        "rating":0,
+                        "email":email,
+                        "aboutMe":aboutMe
+                    }),
+                    success: function(data){
+                        console.log(data.objectId);
+                    },
+                    error: function(err){
+                        console.log(err);
+                    }
+                });
+            });
+
+            console.log(JSON.stringify({"users": { "__op": "AddRelation","objects": [{"__type": "Pointer","className": "_User","objectId": "sad"}]}}));
+
+            function setRole(data){
+                $.ajax({
+                    method: "PUT",
+                    contentType: "application/json",
+                    data: JSON.stringify({"users": { "__op": "AddRelation","objects": [{"__type": "Pointer","className": "_User","objectId": data.objectId}]}}),
+                    url: 'https://api.parse.com/1/roles/fMLotQQa9j',
+                    success: function(data){
+                        console.log('Role: ' + data)
+                    },
+                    error: function(err){
+                        console.log(err);
+                    }
+            })}
+
+        </script>
+
+    </body>
+</html>
