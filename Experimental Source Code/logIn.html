@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="jquery-2.1.1.min.js"></script>
+    <script src="helpers.js"></script>
+</head>
+<body>
+    <input type="text" id="username"/>username<br>
+    <input type="text" id="password"/>pass<br>
+
+    <button id="logInBtn">Log In</button>
+
+    <script>
+
+        $("#logInBtn").on("click", function() {
+            logIn($("#username").val(), $("#password").val());
+        });
+
+
+
+    </script>
+
+</body>
+</html>
