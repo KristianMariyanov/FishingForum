@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="jquery-2.1.1.min.js"></script>
+    <script src="helpers.js"></script>
+</head>
+<body>
+    Title <input type="text" id="postTitle"/><br>
+    Content <input type="text" id="postContent"/><br>
+    Category
+    <select id="category"></select><br>
+
+    Tags <input type="text" id="postTags"/><br>
+    <button id="addPostBtn">Create post</button><br>
+
+    <img src="ajax-loader.gif" id="loaderImg" style="display: none; width: 30px;" alt=""/>
+
+    <script>
+        var createdPostData;
+        $("#addPostBtn").on("click", function(){
+            $('#loaderImg').fadeIn();
+            var title = $("#postTitle").val();
+            var content = $("#postContent").val();
+            var status = $( "#category option:selected").attr('id');
+            var category = $("#postCategory").val();
+            var tags = $("#postTags").val();
+
+            createdPostData = createPost(title, content, status, category);
+            createPostTags(tags, createdPostData.objectId);
+
+        });
+
+        var categories = getCategories();
+        categories.forEach(function(category){
+            $("#category").append("<option id='" + category.objectId + "' value='" + category.name + "'>" + category.name + "</option>")
+        });
+
+        function createPostTags(tags, objId){
+            var tagMetaId = "";
+            tags = tags.split(", ");
+
+            tags.forEach(function(tag){
+                var tempTag = getTagByName(tag);
+                if (tempTag.length != 0){
+                    tagMetaId = tempTag[0].objectId;
+                } else {
+                    tagMetaId = createTag(tag);
+                }
+                createTagMeta(tagMetaId, objId);
+            });
+            $('#loaderImg').fadeOut();
+        }
+
+
+    </script>
+
+</body>
+</html>
