@@ -13,13 +13,12 @@
 
     Tags <input type="text" id="postTags"/><br>
     <button id="addPostBtn">Create post</button><br>
-
     <img src="ajax-loader.gif" id="loaderImg" style="display: none; width: 30px;" alt=""/>
 
     <script>
         var createdPostData;
         $("#addPostBtn").on("click", function(){
-            $('#loaderImg').fadeIn();
+            $('#loaderImg').show();
             var title = $("#postTitle").val();
             var content = $("#postContent").val();
             var status = $( "#category option:selected").attr('id');
@@ -44,12 +43,15 @@
                 var tempTag = getTagByName(tag);
                 if (tempTag.length != 0){
                     tagMetaId = tempTag[0].objectId;
+                    updateTagCount(tempTag[0].objectId, tempTag[0].counter);
+                    console.log(tempTag[0].objectId + " " + tempTag[0].counter);
                 } else {
                     tagMetaId = createTag(tag);
                 }
                 createTagMeta(tagMetaId, objId);
             });
             $('#loaderImg').fadeOut();
+            
         }
 
 

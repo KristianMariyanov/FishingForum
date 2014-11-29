@@ -58,25 +58,6 @@ function getCookie(cname) {
     return "";
 }
 
-function createTag(name){
-    var res;
-    $.ajax({
-        method: "POST",
-        async:false,
-        url: 'https://api.parse.com/1/classes/tag',
-        contentType: "application/json",
-        data: JSON.stringify({
-            "title":name,
-            "counter":0
-        }),
-        success: function(data) {
-            res = data.objectId;
-        },
-        error: errorReport
-    });
-    return res;
-}
-
 function logIn(username, pass){
     $.ajax({
         method: "GET",
@@ -185,6 +166,25 @@ function getCategories(){
     return categories;
 }
 
+function createTag(name){
+    var res;
+    $.ajax({
+        method: "POST",
+        async:false,
+        url: 'https://api.parse.com/1/classes/tag',
+        contentType: "application/json",
+        data: JSON.stringify({
+            "title":name,
+            "counter":1
+        }),
+        success: function(data) {
+            res = data.objectId;
+        },
+        error: errorReport
+    });
+    return res;
+}
+
 function getTags(){
     var tags = [];
     $.ajax({
@@ -221,13 +221,26 @@ function getTagByName(name){
         url: encodeURI('https://api.parse.com/1/classes/tag/?where={"title":"' + name + '"}'),
         success: function(data){
             data.results.forEach(function(item){
-                tags.push({"name": item.title, "objectId":item.objectId});
+                tags.push({"name": item.title, "objectId":item.objectId, "counter": item.counter});
             });
             return (tags);
         },
         error: errorReport
     });
     return tags;
+}
+
+function updateTagCount(tagId, currentCount){
+    $.ajax({
+        method: "PUT",
+        async:true,
+        url: 'https://api.parse.com/1/classes/tag/' + tagId,
+        contentType: "application/json",
+        data: JSON.stringify({
+            "counter":(currentCount+1)
+        }),
+        error: errorReport
+    });
 }
 
 function createTagMeta(tagId, postId){
