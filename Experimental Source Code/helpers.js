@@ -193,7 +193,7 @@ function getTags(){
         url: 'https://api.parse.com/1/classes/tag/',
         success: function(data){
             data.results.forEach(function(item){
-                tags.push({"name": item.title, "objectId":item.objectId});
+                tags.push({"name": item.title, "objectId":item.objectId, "counter": item.counter});
             });
             return (tags);
         },
@@ -219,6 +219,23 @@ function getTagByName(name){
         method: "GET",
         async:false,
         url: encodeURI('https://api.parse.com/1/classes/tag/?where={"title":"' + name + '"}'),
+        success: function(data){
+            data.results.forEach(function(item){
+                tags.push({"name": item.title, "objectId":item.objectId, "counter": item.counter});
+            });
+            return (tags);
+        },
+        error: errorReport
+    });
+    return tags;
+}
+
+function getTagsByPopularity(){
+    var tags = [];
+    $.ajax({
+        method: "GET",
+        async:false,
+        url: 'https://api.parse.com/1/classes/tag/?order=-counter,title',
         success: function(data){
             data.results.forEach(function(item){
                 tags.push({"name": item.title, "objectId":item.objectId, "counter": item.counter});
