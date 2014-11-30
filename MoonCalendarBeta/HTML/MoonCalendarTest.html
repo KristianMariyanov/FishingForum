@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Moon Calendar</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/Scripts/MoonPhasesAlgorithm.js"></script>
+    <script src="/Scripts/TimeCalculations.js"></script>
+    <script src="/Scripts/ImagesManager.js"></script>
+</head>
+<body>
+   
+    <div id="container">
+        <p>Container of the moon Calendar</p>
+    </div>
+    <script type="text/javascript">
+        var images = ImageLoader();
+        var time = CurrTime();
+        var moonPhase = calcMPhase(time[3]);
+        $("<div id='moon'>").width(100).height(100).appendTo("#container");
+        $("<img id='phase'>").appendTo("#moon");
+        $("#phase").attr("src",images[moonPhase]);
+    </script>
+</body>   
+</html>
