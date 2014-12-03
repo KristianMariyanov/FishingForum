@@ -3,59 +3,23 @@
 <head>
     <title></title>
     <script src="jquery-2.1.1.min.js"></script>
-    <script src="helpers.js"></script>
+    <script src="createPost.js"></script>
 </head>
 <body>
-    Title <input type="text" id="postTitle"/><br>
-    Content <input type="text" id="postContent"/><br>
-    Category
-    <select id="category"></select><br>
+    <label for="postTitle">Post Title</label>
+    <input type="text" id="postTitle"/><br/>
 
-    Tags <input type="text" id="postTags"/><br>
-    <button id="addPostBtn">Create post</button><br>
+    <label for="postContent">Post Content</label>
+    <textarea id="postContent" cols="30" rows="10"></textarea><br/>
+
+    <label for="category">Category</label>
+    <select id="category"></select><br/>
+
+    <label for="postTags">Post Tags</label>
+    <input type="text" id="postTags"/><br/>
+
+    <button id="addPostBtn">Create Post</button><br>
     <img src="ajax-loader.gif" id="loaderImg" style="display: none; width: 30px;" alt=""/>
-
-    <script>
-        var createdPostData;
-        $("#addPostBtn").on("click", function(){
-            $('#loaderImg').show();
-            var title = $("#postTitle").val();
-            var content = $("#postContent").val();
-            var status = $( "#category option:selected").attr('id');
-            var category = $("#postCategory").val();
-            var tags = $("#postTags").val();
-
-            createdPostData = createPost(title, content, status, category);
-            createPostTags(tags, createdPostData.objectId);
-
-        });
-
-        var categories = getCategories();
-        categories.forEach(function(category){
-            $("#category").append("<option id='" + category.objectId + "' value='" + category.name + "'>" + category.name + "</option>")
-        });
-
-        function createPostTags(tags, objId){
-            var tagMetaId = "";
-            tags = tags.split(", ");
-
-            tags.forEach(function(tag){
-                var tempTag = getTagByName(tag);
-                if (tempTag.length != 0){
-                    tagMetaId = tempTag[0].objectId;
-                    updateTagCount(tempTag[0].objectId, tempTag[0].counter);
-                    console.log(tempTag[0].objectId + " " + tempTag[0].counter);
-                } else {
-                    tagMetaId = createTag(tag);
-                }
-                createTagMeta(tagMetaId, objId);
-            });
-            $('#loaderImg').fadeOut();
-
-        }
-
-
-    </script>
 
 </body>
 </html>
