@@ -6,47 +6,6 @@ $.ajaxSetup({
     }
 });
 
-function createPost(title, content, status, category){
-    var resultData;
-    $.ajax({
-        method: "POST",
-        async: false,
-        url: 'https://api.parse.com/1/classes/question',
-        contentType: "application/json",
-        data: JSON.stringify({
-            "title":title,
-            "content":content,
-            "status":{
-                "__type":"Pointer",
-                "className":"QuestionRole",
-                "objectId":"JOnNcZIoSE"
-            },
-            "category":
-            {
-                "__type":"Pointer",
-                "className":"category",
-                "objectId":status
-            },
-            "author":
-            {
-                "__type":"Pointer",
-                "className":"_User",
-                "objectId":localStorage.getItem("loggedUserId")
-            },
-            "rating":0,
-            "viewCounter":0
-        }),
-        success: function(data){
-            resultData = data;
-            console.log(data)
-        },
-        error: function(err){
-            console.log(err);
-        }
-    });
-    return resultData;
-}
-
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
@@ -80,37 +39,39 @@ function logOut(){
     localStorage.removeItem("sessionToken");
 }
 
-function registerUser(){
-    var username= $("#username").val();
-    var password= $("#password").val();
-    var email= $("#email").val();
-    var firstName = $("#firstName").val();
-    var lastName= $("#lastName").val();
-    var aboutMe= $("#aboutMe").val();
 
-    var createdUserId = "";
+var registerUser = function (){
+        var username= $("#username").val();
+        var password= $("#password").val();
+        var email= $("#email").val();
+        var firstName = $("#firstName").val();
+        var lastName= $("#lastName").val();
+        var aboutMe= $("#aboutMe").val();
 
-    $.ajax({
-        method: "POST",
-        url: 'https://api.parse.com/1/users',
-        contentType: "application/json",
-        data: JSON.stringify({
-            "username":username,
-            "password":password,
-            "firstName": firstName,
-            "lastName":lastName,
-            "rating":0,
-            "email":email,
-            "aboutMe":aboutMe
-        }),
-        success: function(data){
-            setRole(data);
-        },
-        error: function(err){
-            console.log(err);
-        }
-    });
-}
+        var createdUserId = "";
+
+        $.ajax({
+            method: "POST",
+            url: 'https://api.parse.com/1/users',
+            contentType: "application/json",
+            data: JSON.stringify({
+                "username":username,
+                "password":password,
+                "firstName": firstName,
+                "lastName":lastName,
+                "rating":0,
+                "email":email,
+                "aboutMe":aboutMe
+            }),
+            success: function(data){
+                setRole(data);
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    };
+
 
 function setRole(data){
     $.support.cors = true;
@@ -149,41 +110,9 @@ function getUserByObjectId(objectId){
     });
 }
 
-function getCategories(){
-    var categories = [];
-    $.ajax({
-        method: "GET",
-        async:false,
-        url: 'https://api.parse.com/1/classes/category/',
-        success: function(data){
-            data.results.forEach(function(category){
-                categories.push({"name": category.name, "objectId":category.objectId});
-            });
-            return (categories);
-        },
-        error: errorReport
-    });
-    return categories;
-}
 
-function createTag(name){
-    var res;
-    $.ajax({
-        method: "POST",
-        async:false,
-        url: 'https://api.parse.com/1/classes/tag',
-        contentType: "application/json",
-        data: JSON.stringify({
-            "title":name,
-            "counter":1
-        }),
-        success: function(data) {
-            res = data.objectId;
-        },
-        error: errorReport
-    });
-    return res;
-}
+
+
 
 function getTags(){
     var tags = [];
@@ -213,22 +142,7 @@ function getTagByObjectId(objectId){
     });
 }
 
-function getTagByName(name){
-    var tags = [];
-    $.ajax({
-        method: "GET",
-        async:false,
-        url: encodeURI('https://api.parse.com/1/classes/tag/?where={"title":"' + name + '"}'),
-        success: function(data){
-            data.results.forEach(function(item){
-                tags.push({"name": item.title, "objectId":item.objectId, "counter": item.counter});
-            });
-            return (tags);
-        },
-        error: errorReport
-    });
-    return tags;
-}
+
 
 function getTagsByPopularity(){
     var tags = [];
@@ -260,27 +174,5 @@ function updateTagCount(tagId, currentCount){
     });
 }
 
-function createTagMeta(tagId, postId){
-    $.ajax({
-        method: "POST",
-        url: 'https://api.parse.com/1/classes/tagsMeta',
-        contentType: "application/json",
-        data: JSON.stringify({
-            "question":{
-                "__type":"Pointer",
-                "className":"question",
-                "objectId":postId
-            },
-            "tag":{
-                "__type":"Pointer",
-                "className":"tag",
-                "objectId":tagId
-            }
-        }),
-        error: errorReport
-    });
-}
 
-function errorReport(err){
-    console.log(err);
-}
+
