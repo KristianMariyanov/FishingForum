@@ -3,19 +3,12 @@
     <head>
         <title>Tags</title>
         <script src="jquery-2.1.1.min.js"></script>
-        <script src="helpers.js"></script>
+        <script src="tags.js"></script>
     </head>
     <body>
-        <input type="text" id="tagName"/>Tag name<br>
+        <label for="tagName">Tag Name</label>
+        <input type="text" id="tagName"/><br/>
+
         <button id="createTagBtn">Create Tag</button>
-
-        <script>
-
-            $("#createTagBtn").on("click", function() {
-               createTag($("#tagName").val());
-            });
-
-        </script>
-
     </body>
 </html>
