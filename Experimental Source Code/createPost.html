@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Create Post</title>
     <script src="scripts/lib/jquery-2.1.1.min.js"></script>
-    <script src="scripts/createPost.js"></script>
 </head>
 <body>
-    <label for="postTitle">Post Title</label>
-    <input type="text" id="postTitle"/><br/>
+    <form action="#" id="postForm">
+        <label for="postTitle">Post Title</label>
+        <input type="text" id="postTitle"/><br/>
 
-    <label for="postContent">Post Content</label>
-    <textarea id="postContent" cols="30" rows="10"></textarea><br/>
+        <label for="postContent">Post Content</label>
+        <textarea id="postContent" cols="30" rows="10"></textarea><br/>
 
-    <label for="category">Category</label>
-    <select id="category"></select><br/>
+        <label for="category">Category</label>
+        <select id="category"></select><br/>
 
-    <label for="postTags">Post Tags</label>
-    <input type="text" id="postTags"/><br/>
+        <label for="postTags">Post Tags</label>
+        <input type="text" id="postTags"/><br/>
 
-    <button id="addPostBtn">Create Post</button><br>
+        <input type="submit" value="Create Post"/><br/>
+    </form>
     <img src="ajax-loader.gif" id="loaderImg" style="display: none; width: 30px;" alt=""/>
 
+    <script data-main="scripts/createPost" src="scripts/lib/require.js"></script>
 </body>
 </html>

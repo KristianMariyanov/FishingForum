@@ -1,22 +1,3 @@
-$.ajaxSetup({
-    headers: {
-        "X-Parse-Application-Id": "qMgTURpDZUZXbS8OyDfvICSCMS5YkkpuMn9vIlco",
-        "X-Parse-REST-API-Key": "KOWQQ2S9fB5Hx7bNjiv4bskSQrSuZvSniHUpF4Bb",
-        "X-Parse-Session-Token": getCookie("sessionToken")
-    }
-});
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0; i<ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1);
-        if (c.indexOf(name) != -1) return c.substring(name.length,c.length);
-    }
-    return "";
-}
-
 function logOut(){
     document.cookie = "sessionToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
     localStorage.removeItem("sessionToken");
