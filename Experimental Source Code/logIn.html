@@ -3,23 +3,15 @@
 <head>
     <title></title>
     <script src="jquery-2.1.1.min.js"></script>
-    <script src="helpers.js"></script>
+    <script src="logIn.js"></script>
 </head>
 <body>
-    <input type="text" id="username"/>username<br>
-    <input type="text" id="password"/>pass<br>
+    <label for="username">Username</label>
+    <input type="text" id="username"/><br/>
+
+    <label for="password">Password</label>
+    <input type="password" id="password"/><br/>
 
     <button id="logInBtn">Log In</button>
-
-    <script>
-
-        $("#logInBtn").on("click", function() {
-            logIn($("#username").val(), $("#password").val());
-        });
-
-
-
-    </script>
-
 </body>
 </html>

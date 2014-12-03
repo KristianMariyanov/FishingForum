@@ -17,28 +17,10 @@ function getCookie(cname) {
     return "";
 }
 
-function logIn(username, pass){
-    $.ajax({
-        method: "GET",
-        url: 'https://api.parse.com/1/login?username=' + username + '&password=' + pass,
-        contentType: "application/json",
-        data: null,
-        success: function(data){
-            console.log(JSON.stringify(data));
-            document.cookie = "sessionToken=" + data.sessionToken;
-            localStorage.setItem("loggedUserId", data.objectId);
-        },
-        error: function(err){
-            console.log(err);
-        }
-    });
-}
-
 function logOut(){
     document.cookie = "sessionToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
     localStorage.removeItem("sessionToken");
 }
-
 
 var registerUser = function (){
         var username= $("#username").val();
@@ -71,7 +53,6 @@ var registerUser = function (){
             }
         });
     };
-
 
 function setRole(data){
     $.support.cors = true;
@@ -110,10 +91,6 @@ function getUserByObjectId(objectId){
     });
 }
 
-
-
-
-
 function getTags(){
     var tags = [];
     $.ajax({
@@ -141,8 +118,6 @@ function getTagByObjectId(objectId){
         error: errorReport
     });
 }
-
-
 
 function getTagsByPopularity(){
     var tags = [];
