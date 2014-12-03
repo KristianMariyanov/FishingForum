@@ -1,4 +1,4 @@
-require(['config'], function (headers) {
+require(['modules/config'], function (headers) {
     $(document).ready(function () {
         headers;
 
