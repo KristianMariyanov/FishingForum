@@ -159,9 +159,8 @@ h4{
     padding: 1%;
 }
 
-
-/* Sign in form */
-.form-signin {
+/* form */
+.form {
     width: 415px;
     margin: 0 auto;
     margin-top: 40px;
@@ -174,38 +173,70 @@ h4{
     background: linear-gradient(to right,  rgba(78,53,191,0.8) 12%,rgba(78,53,191,0.8) 76%,rgba(78,53,191,0.8) 76%,rgba(78,53,191,0.8) 78%,rgba(78,53,191,0.8) 78%,rgba(78,53,191,0.8) 78%,rgba(78,53,191,0.8) 78%,rgba(83,196,49,0.8) 78%); /* W3C */
     border-radius: 15px;
     padding: 15px 42px 15px 10px;
-
-
 }
-.form-signin .form-control {
-    display: inline-table;
-    max-width: 40%;
-    height: 30px;
-    margin-right: 10px;
-}
-.form-signin .input-container{
+.form .input-container{
     margin-top: 50px;
     display: inline;
 }
-.form-signin .input-container h2{
+.form .input-container h2{
     margin-bottom: 10px;
 }
-.form-signin .checkbox{
-     color: #ffffff;
-    font-size: 10pt;
- }
-.form-signin .checkbox a{
-    color: rgb(83,196,49);
-    font-size: 13pt;
+.form .input-container input, textarea {
+    padding-left: 10px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    opacity: 0.8;
 }
-.form-signin .checkbox span{
-    margin-left: 48px;
+.form .input-container textarea {
+    height: 65px;
+    width: 57%
 }
 
-.form-signin .enter-button input{
+.form .enter-button input{
     width: 14%;
     margin-left: 335px;
 }
+
+/* Sign up form */
+.form .signup-control {
+    display: block;
+    max-width: 50%;
+    margin-bottom: 15px;
+    margin-left: 61px;
+}
+
+/* Sign in form */
+.form .signin-control {
+    display: inline-table;
+    max-width: 40%;
+    margin-right: 10px;
+}
+.form .input-container #inputPassword{
+    background-image: url("images/pass-icon.png");
+    background-size: 20px ;
+    background-position: 122px 4px;
+    background-repeat: no-repeat;
+}
+.form .input-container #inputUsername{
+    background-image: url("images/login-icon.png");
+    background-size: 20px ;
+    background-position: 122px 4px;
+    background-repeat: no-repeat;
+}
+
+.form .checkbox{
+    color: #ffffff;
+    font-size: 10pt;
+}
+.form .checkbox a{
+    color: rgb(83,196,49);
+    font-size: 13pt;
+}
+.form .checkbox span{
+    margin-left: 48px;
+}
+
 
 /* Footer */
 
