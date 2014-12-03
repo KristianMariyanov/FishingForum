@@ -42,11 +42,14 @@
         	var user = function (username) {
         		var getUserUrl = 'https://api.parse.com/1/users?where={"username":"' + username +'"}';
         		getResults(getUserUrl).done (function (data) {
-        			debugger;
-        			$.each(data.results, function (index, value) {
+                    if (data.results.length) {
+            			$.each(data.results, function (index, value) {
         					var user = Mustache.to_html(userTemplate, value);
         					$(document.body).append(user);
         				})
+                    } else {
+                        $(document.body).append('There is no user with username: "' + username + '"');
+                    }
         		}).fail (function (error) {
         			console.log(error)
         		})
