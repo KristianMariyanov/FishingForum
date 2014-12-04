@@ -2,7 +2,8 @@ require(['modules/headersWithSession'], function (headers) {
     $(document).ready(function () {
         headers;
 
-        $("#createTagBtn").on("click", function() {
+        $("#tagForm").submit(function(e) {
+            e.preventDefault();
             createTag($("#tagName").val());
         });
 

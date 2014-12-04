@@ -5,13 +5,15 @@
     <script src="scripts/lib/jquery-2.1.1.min.js"></script>
 </head>
 <body>
-    <label for="username">Username</label>
-    <input type="text" id="username"/><br/>
+    <form action="#" id="logInForm">
+        <label for="username">Username</label>
+        <input type="text" id="username"/><br/>
 
-    <label for="password">Password</label>
-    <input type="password" id="password"/><br/>
+        <label for="password">Password</label>
+        <input type="password" id="password"/><br/>
 
-    <button id="logInBtn">Log In</button>
+        <input type="submit" value="Log In"/><br/>
+    </form>
 
     <script data-main="scripts/logIn" src="scripts/lib/require.js"></script>
 </body>

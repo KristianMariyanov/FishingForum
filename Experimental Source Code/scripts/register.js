@@ -2,10 +2,11 @@ require(['modules/headersNoSession'], function (headers) {
     $(document).ready(function () {
         headers;
 
-        var buttonRegister = $('#registerBtn');
-        buttonRegister.click(registerUser);
+//        var formRegister = $('#registerForm');
+//        formRegister.submit(registerUser);
 
-        function registerUser() {
+        $( "#registerForm" ).submit(function(e) {
+            e.preventDefault();
             var username = $("#username").val();
             var password = $("#password").val();
             var email = $("#email").val();
@@ -35,7 +36,7 @@ require(['modules/headersNoSession'], function (headers) {
                     console.log(err);
                 }
             });
-        };
+        })
 
         function setRole(data) {
             $.support.cors = true;

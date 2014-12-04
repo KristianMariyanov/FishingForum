@@ -4,7 +4,8 @@ require(['modules/headersNoSession'], function (headers) {
         headers;
 
         //Actual Login
-        $("#logInBtn").on("click", function () {
+        $("#logInForm").submit(function (e) {
+            e.preventDefault();
             logIn($("#username").val(), $("#password").val());
         });
 
