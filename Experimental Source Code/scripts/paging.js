@@ -1,5 +1,11 @@
 require(['modules/headersNoSession'], function (headers) {
     var listItems = (function () {
+	
+		var getCategories = function () {
+                url = 'https://api.parse.com/1/classes/category';
+                return getResultsOfSpecificPage(url);
+            };
+			
         var getUsersOfSpecificPage = function (page, resultsOfPage) {
             var skip = (page - 1) * resultsOfPage;
             return getResultsOfSpecificPage('https://api.parse.com/1/users?limit=' + resultsOfPage + '&skip=' + skip);
@@ -52,10 +58,10 @@ require(['modules/headersNoSession'], function (headers) {
             getQuestionsOfSpecificPageByCategory: getQuestionsOfSpecificPageByCategory,
             getQuestionsOfSpecificPageByUser: getQuestionsOfSpecificPageByUser,
             getAnswersOfSpecificPageByQuestion: getAnswersOfSpecificPageByQuestion,
-            getAnswersOfSpecificPageByUser: getAnswersOfSpecificPageByUser
+            getAnswersOfSpecificPageByUser: getAnswersOfSpecificPageByUser,
+			getCategories : getCategories
         }
     })();
 
-//    //for test purposes
-//    console.log(listItems.getUsersOfSpecificPage(2,3));
+	console.log(listItems.getCategories());
 })
