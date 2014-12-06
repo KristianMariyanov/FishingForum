@@ -2,18 +2,28 @@ html, body, header, section, article, div, nav, aside, ul, li, img, h1, h2, h3, 
     margin: 0;
     padding: 0;
 }
-
+html {
+    position: relative;
+    min-height: 100%;
+}
 body {
     background: url("images/background-image.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    margin-bottom: 40px;
 }
+
 
 h2 {
     color: #ffffff;
     font-size: 19pt;
+}
+h3{
+    color: #ffffff;
+    font-size: 19pt;
+    vertical-align: middle;
 }
 
 h4{
@@ -22,9 +32,10 @@ h4{
     font-size: 1.2vw;
 }
 
+
 /* Header */
 .header .navbar-custom {
-    background-color: rgba(83,196,49,0.8);
+    background-color: rgba(14, 196, 0, 0.8);
     border-radius:0;
     height: 85px;
 }
@@ -81,6 +92,9 @@ h4{
     text-shadow: 0 1px 0 #000;
     color: #ffffff;
 }
+
+
+
 
 /* main */
 .corousel-background {
@@ -159,6 +173,10 @@ h4{
     padding: 1%;
 }
 
+
+
+
+
 /* form */
 .form {
     width: 415px;
@@ -196,6 +214,49 @@ h4{
 .form .enter-button input{
     width: 14%;
     margin-left: 335px;
+}
+
+
+/* Footer */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: rgba(83,196,49,0.8);
+}
+
+.footer-container {
+    margin: 0 auto;
+    max-width: 680px;
+    margin-top: 8px;
+    text-align: center;
+}
+.footer-container .text-muted {
+    color: #ffffff !important;
+}
+
+
+/* User Page */
+#user-page {
+    margin: 0 auto;
+    width: 900px;
+}
+#user-page .user-panel-heading {
+    width: 300px;
+    background-color: rgba(83,196,49,0.8);
+    margin: 5px;
+    padding: 5px;
+    color: #ffffff;
+}
+#user-page .panel-title {
+    background-color: #000ab8;
+}
+#user-page .image img{
+    height: auto;
+    width: auto;
+    max-width: 95%;
+    max-height: 200px;
 }
 
 /* Sign up form */
@@ -237,19 +298,108 @@ h4{
     margin-left: 48px;
 }
 
-
-/* Footer */
-
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 35px;
-    background-color: rgba(83,196,49,0.8);
+/* Question Main Page */
+#forum-panel .question-post {
+    background-color: rgba(14, 196, 0, 0.9);
+    color: #f5f5f5;
+    max-width: 354px;
+    padding-left: 7px;
+    font-size: 11pt;
 }
-.footer p{
-    font-size: 13px;
-    margin-top: 8px;
+button{
+    margin-left: 45%;
+    margin-top: 10px;
+}
+
+#forum-panel .answer-area {
+    width: 400px;
+    height: 100px;
+    margin-left: 32%;
+    margin-top: 10px;
+}
+
+
+/* Forum Main Page */
+
+#forum-panel{
+    margin: 40px;
+}
+#forum-panel hr{
+    width: 90%;
+    margin: 2px 0 2px 50px;
+    border-top: 1px solid #000000
+}​
+ #forum-panel a{
+     color: #ee4152;
+ }​
+  #forum-panel .col-sm-8{
+      padding-right: 1px;
+      padding-left: 0px;
+  }
+#forum-panel .panel-heading{
+    height: 33px;
+    background-image: none;
+    background-color: rgba(78,53,191,0.7);
     text-align: center;
-    color: #ffffff;
 }
+#forum-panel .post-header {
+    background-color: rgba(78,53,191,0.7);
+}
+
+#forum-panel .panel {
+    margin-bottom: 65px;
+    min-width: 242px;
+    min-height: 205px;
+    background-color: rgba(14, 196, 0, 0.9);
+
+}
+#forum-panel .last-post {
+    background-color: rgba(14, 196, 0, 0.9);
+    color: #f5f5f5;
+    max-width: 354px;
+    padding-left: 7px;
+    text-align: center;
+
+}
+#forum-panel .active-user {
+    width: 90%;
+    vertical-align: top;
+    margin-left: 50px;
+}
+#forum-panel .active-user .author{
+    display: inline-block;
+}
+#forum-panel .active-user .date{
+    display: inline-block;
+}
+
+#forum-panel .question-panel{
+    display: inline-block;
+    max-width: 90%;
+    min-width:29%;
+    margin-left: 49px;
+
+}
+#forum-panel .question-title{
+    width: 100%;
+}
+#forum-panel .question-viewing{
+    width:100%;
+    font-size: 7pt;
+}
+#forum-panel .question-content{
+    width: 100%;
+}
+#forum-panel .question-content p{
+    line-height: 1.5em;
+    height: 3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-line;
+    font-size: 8pt;
+    color: #080808;
+
+}​
+
+
+
