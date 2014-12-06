@@ -44,6 +44,7 @@ require(['modules/headersWithSession'], function (headers) {
 
         function createPost(title, content, status, category){
             var resultData;
+            var userId = localStorage.getItem("loggedUserId");
             $.ajax({
                 method: "POST",
                 async: false,
@@ -73,7 +74,16 @@ require(['modules/headersWithSession'], function (headers) {
                         "objectId":"rLS3fzUsH5"
                     },
                     "rating":0,
-                    "viewCounter":0
+                    "viewCounter":0,
+                    "ALC":{ /// Only the user creating this can edit it. The others can only read it.
+                        userId: {
+                            "read": true,
+                            "write": true
+                        },
+                        "*": {
+                            "read": true
+                        }
+                    }
                 }),
                 success: function(data){
                     resultData = data;

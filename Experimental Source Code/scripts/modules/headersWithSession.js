@@ -6,7 +6,7 @@ define(function () {
 //            "X-Parse-Session-Token": getCookie("sessionToken")
             // TODO: unquote the real code
             //hardcoded for test purposes
-            "X-Parse-Session-Token": "5nDqDCwPfMpZEUAs7wQKJJvTm"
+            "X-Parse-Session-Token": "VeUbJxNs8dCVfQayZmAb4LXea" // Admin session token.
         }
     });
 
