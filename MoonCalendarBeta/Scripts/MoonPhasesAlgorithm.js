@@ -25,7 +25,7 @@ function calcMPhase(cDay) {
 
 function calcMAge(cDay) {
     var thisYear = cDay.getFullYear();
-    var thisMonth = cDay.getMonth() + 1;
+    var thisMonth = cDay.getMonth();
     var thisDay = cDay.getDate();
 
     var YY = thisYear - Math.floor((12 - thisMonth) / 10);

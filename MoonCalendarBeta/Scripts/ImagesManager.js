@@ -1,18 +1,40 @@
-﻿function ImageLoader() {
-    //Images for the different Moon phases
-    var phaseOne = "/img/phase_1.png";
-      
-    var phaseTwo = "/img/phase_2.png";
-   
-    var phaseThree = "/img/phase_3.png";
-  
-    var phaseFour = "/img/phase_4.png";
-  
-    var phaseFive = "/img/phase_5.png";
-  
-    var phaseSix = "/img/phase_6.png";
-   
-    var phaseSeven = "/img/phase_7.png";
-    var phases = [phaseOne, phaseTwo, phaseThree, phaseFour, phaseFive, phaseSix, phaseSeven];
-    return phases;
-}
+﻿(function ImageLoader() {
+    var images = [];
+    var APP_KEY = "qMgTURpDZUZXbS8OyDfvICSCMS5YkkpuMn9vIlco";
+    var REST_API = "KOWQQ2S9fB5Hx7bNjiv4bskSQrSuZvSniHUpF4Bb";
+    $.ajax({
+        method: "GET",
+        headers: {
+            "X-Parse-Application-Id": APP_KEY,
+            "X-Parse-REST-API-Key": REST_API
+        },
+        url: "https://api.parse.com/1/classes/MoonImages",
+        success: imagesLoaded,
+        error: throwError
+    });
+    function imagesLoaded(data) {
+
+        for (var c in data.results) {
+            var object = data.results[c].Images.url;
+            images.push(object);
+
+        }
+        var cDate = timeDate();
+        console.log(cDate);
+        var mPhase = calcMPhase(cDate);
+        var img = $("<img id='phase'>");
+        img.attr('src', images[mPhase]);
+        img.appendTo("#moon");
+        $("#moon").css('background-color', 'black');
+        
+    };
+
+    $(function () {
+        $("#container").width(200).height(200);
+    });
+
+    function throwError() {
+        alert("Oops! There is a problem.")
+    };
+
+}());
