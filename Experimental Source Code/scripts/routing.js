@@ -41,6 +41,7 @@
         this.get('#/forum/category/:category/:question', function () {
             var categoryId = this.params['category'];
             var question = this.params['question'];
+            $('#main').load('addAnswer.html');
         });
 
         this.get('#/login', function () {
