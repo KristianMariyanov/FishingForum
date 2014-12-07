@@ -16,7 +16,7 @@
 	<script src="js/Clock.js"></script>
 
 </head>
-    <body>
+    <body onload="timeDate();setInterval('timeDate()',1000)">
 
     <header class="header">
     </header>
@@ -89,7 +89,18 @@
                 </section>
 
             </div>
-
+			
+			 <div class="col-xs-3 div-content" id="container">
+                <div class="header-background">
+                   <h2>Moon Calendar</h2>
+                </div>
+				<div id="clock"></div>
+				<section>
+                    <span id="calendar"></span>
+                </section>
+				<div id="moon"></div>
+            </div>
+			
             <div class="col-xs-3 div-content ">
                 <div class="header-background">
                     <h2>News</h2>

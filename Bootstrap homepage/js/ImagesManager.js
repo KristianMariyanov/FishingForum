@@ -25,10 +25,10 @@
         var img = $("<img id='phase'>");
         img.attr('src', images[mPhase]);
         img.appendTo("#moon");
-        $("#moon").css('background-color', 'black');
+        
         
     };
-
+	
     $(function () {
         $("#container").width(200).height(200);
     });
