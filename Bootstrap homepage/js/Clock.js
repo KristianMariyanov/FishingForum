@@ -25,57 +25,32 @@
     dateString.push(month);
     dateString.push(year);
     
-    $("#clock").text(currTimeString);
-    function getDay(date) {
-        var currDay;
-        switch (date) {
-            case 0: currDay = "Sunday";
-                break;
-            case 1: currDay = "Monday";
-                break;
-            case 2: currDay = "Tuesday";
-                break;
-            case 3: currDay = "Wednesday";
-                break;
-            case 4: currDay = "Thursday";
-                break;
-            case 5: currDay = "Friday";
-                break;
-            case 6: currDay = "Saturday";
-                break;
-        }
-        return currDay;
-    }
+    var timeDateString=getDay(day)+", "+date+" "+getMonth(month-1)+" "+year+" - "+currTimeString;
+	$("#sub-right").html(timeDateString+"<br />"+getLatinName(currTime)+"<br />"+
+	"Distance from Earth: "+calcMDist(currTime)+"<br />"+"Moon Age: "+calcMAge(currTime)+" days");
+	
     function getMonth(month) {
-        var currMonth;
-        switch (month) {
-            case 0: currMonth = "January";
-                break;
-            case 1: currMonth = "February";
-                break;
-            case 2: currMonth = "March";
-                break;
-            case 3: currMonth = "April";
-                break;
-            case 4: currMonth = "May";
-                break;
-            case 5: currMonth = "June";
-                break;
-            case 6: currMonth = "July";
-                break;
-            case 7: currMonth = "August";
-                break;
-            case 8: currMonth = "September";
-                break;
-            case 9: currMonth = "October";
-                break;
-            case 10: currMonth = "November";
-                break;
-            case 11: currMonth = "December";
-                break;
-
-        }
-        return currMonth;
+        var currMonth = new Array();
+			currMonth[0] = "January";
+			currMonth[1] = "February";
+			currMonth[2] = "March";
+			currMonth[3] = "April";
+			currMonth[4] = "May";
+			currMonth[5] = "June";
+			currMonth[6] = "July";
+			currMonth[7] = "August";
+			currMonth[8] = "September";
+			currMonth[9] = "October";
+			currMonth[10] = "November";
+			currMonth[11] = "December";
+			var n = currMonth[month];
+			return n;
     }
+	function getDay(day){
+		var currDay=new Array();
+		currDay=["Mon","Tue","Wed","Thur","Fri","Sat","Sun"];
+		var d=currDay[day];
+		return d;
+	}
     return currTime;
 }

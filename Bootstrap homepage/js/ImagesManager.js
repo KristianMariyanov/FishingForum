@@ -24,17 +24,12 @@
         var mPhase = calcMPhase(cDate);
         var img = $("<img id='phase'>");
         img.attr('src', images[mPhase]);
-        img.appendTo("#moon");
+        img.appendTo("#sub-left");
         
         
     };
-	
-    $(function () {
-        $("#container").width(200).height(200);
-    });
-
-    function throwError() {
-        alert("Oops! There is a problem.")
+	function throwError() {
+        alert("Oops! Something goes wrong with loading the moon images.")
     };
 
 }());

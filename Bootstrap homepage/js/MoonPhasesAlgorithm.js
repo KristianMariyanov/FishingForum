@@ -22,7 +22,23 @@ function calcMPhase(cDay) {
 
     return phase;
 }
-
+function getLatinName(cDay){
+	var name;
+	var latIndex=calcMPhase(cDay);
+	if(latIndex<5){
+		name="Waxing Crescent";
+	}
+	else if(latIndex<9&&latIndex>=5){
+		name="Waxing Gibbous";
+	}
+	else if(latIndex<13&&latIndex>=9){
+		name="Waning Gibbous";
+	}
+	else{
+		name="Waning Crescent";
+	}
+	return name;
+}
 function calcMAge(cDay) {
     var thisYear = cDay.getFullYear();
     var thisMonth = cDay.getMonth();
