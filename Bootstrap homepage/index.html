@@ -11,6 +11,9 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <script src="js/jquery-2.1.1.min.js"></script>
     <script src="js/main.js"></script>
+	<script src="js/Clock.js"></script>
+	<script src="js/MoonPhasesAlgorithm.js"></script>
+	<script src="js/ImagesManager.js"></script>
 
 </head>
     <body>
@@ -88,17 +91,13 @@
                 </section>
             </div>
 
-        <div class="col-sm-3 div-content">
-            <div class="header-background">
-                <h2>Moon Calendar</h2>
-            </div>
-            <section>
-                <article>
-                    Moon Calendar content
-                </article>
-            </section>
-
-        </div>
+        <div class="col-xs-3 div-content" id="container">
+			<div class="header-background">
+			   <h2>Moon Calendar</h2>
+			</div>
+			<div id="sub-right"></div>
+			<div id="sub-left"></div>
+		</div>
 
             <div class="col-sm-3 div-content ">
                 <div class="header-background">
