@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin panel</title>
+    <script src="scripts/lib/jquery-2.1.1.min.js"></script>
+    <link rel="stylesheet" href="styles/adminPanel.css"/>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="#" id="loadAllQuestionsBtn">Load All Questions</a></li>
+            <li><a href="#" id="loadAllQCategoriesBtn">Load All Categories</a></li>
+            <li><a href="#" id="loadAllTagsBtn">Load All Tags</a></li>
+        </ul>
+    </header>
+
+    <div id="allQuestions"  style="display: none">
+        <table id="questionTable">
+            <tr>
+                <th>ID</th>
+                <th>Question title</th>
+                <th>Question content</th>
+                <th>Actions</th>
+            </tr>
+        </table>
+    </div>
+
+    <div id="allCategories"  style="display: none">
+        <table id="categoriesTable">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Count</th>
+                <th>Actions</th>
+            </tr>
+        </table>
+    </div>
+
+    <div id="allTags" style="display: none">
+        <table id="tagsTable">
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Counter</th>
+                <th>Actions</th>
+            </tr>
+        </table>
+    </div>
+
+    <script data-main="scripts/adminPanel" src="scripts/lib/require.js"></script>
+</body>
+</html>
