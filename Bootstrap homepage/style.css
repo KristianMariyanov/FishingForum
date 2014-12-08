@@ -20,7 +20,6 @@ h2 {
     font-size: 19pt;
 }
 h3{
-    color: #ffffff;
     font-size: 19pt;
     vertical-align: middle;
 }
@@ -33,12 +32,12 @@ h4{
 .header .navbar-custom {
     background-color: rgba(83,196,49,0.8);
     border-radius:0;
-    height: 85px;
+    height: 87px;
 }
 
 .header .navbar-custom .navbar-nav {
     margin-right:80px;
-    margin-top: 35px;
+    margin-top: 3px;
     font-size: 130%;
     padding-left: 20px;
     color: red;
@@ -55,6 +54,7 @@ h4{
 }
 .header .navbar-custom .navbar-nav li a{
     color: #000ab8;
+    -webkit-transition:all .3s linear;
 }
 
 .header .navbar-custom .navbar-nav li a:hover{
@@ -63,6 +63,7 @@ h4{
 .header .navbar-custom .navbar-nav  li > a:hover, .nav > li > a:focus {
     text-decoration: none;
     background: #4a30b8;
+    -webkit-transition:all .3s linear;
 }
 
 .header .navbar-custom .navbar-brand {
@@ -72,7 +73,7 @@ h4{
     height: 85px;
     position: relative;
     margin-left: 20px;
-    margin-top: 2px;
+    margin-top: -23px;
 }
 .header .navbar-custom .navbar-header > div{
    float: right;
@@ -89,7 +90,6 @@ h4{
     text-align: right;
     margin-right: 2%;
     margin-top: 1%;
-    float: right !important;
 }
 .header .navbar-custom .login-button ul li{
     list-style-type: none;
@@ -124,19 +124,27 @@ h4{
 .img-class {
     display: block;
 }
+.carousel  {
+    margin-bottom: 30px;
+    margin-left: -6px;
+}
 
 .carousel-caption  {
     margin-left: 20%;
     margin-bottom: 20px;
-    vertical-align: top;
 }
 
 .carousel-caption h1 {
     font-size: 15pt;
 }
 
-.carousel-caption p {
+.carousel-caption article {
     font-size: 12pt;
+    line-height: 1.5em;
+    height: 3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-line;
 }
 
 .carousel-control{
@@ -153,21 +161,20 @@ h4{
 
 
 .box-container{
-    margin-top: 15px;
-    margin-left: 18%;
+    min-height: 250px;
+    margin-left: -23px;
 }
 
-.div-content{
-    background-color: rgba(78,53,191,0.8);
+.div-content {
+    background-color: rgba(78, 53, 191, 0.8);
     padding: 0px !important;
     color: #ffffff;
+    margin-left: 11%;
     margin-right: 2%;
-    min-height: 210px;
-    height:auto;
-    width: 270px;
+    min-height: 226px;
+    height: auto;
     margin-bottom: 15px;
-
-
+    max-width: 243px;
 }
 .div-content article{
     text-align: center;
@@ -315,22 +322,61 @@ h4{
 
 /* Question Main Page */
 #forum-panel .question-post {
-    background-color: rgba(14, 196, 0, 0.9);
-    color: #f5f5f5;
-    max-width: 354px;
-    padding-left: 7px;
-    font-size: 11pt;
+      background-color: rgba(14, 196, 0, 0.9);
+      color: #f5f5f5;
+      max-width: 354px;
+      padding-left: 7px;
+      font-size: 11pt;
+  }
+
+#forum-panel .answer-menu  {
+    text-align: center;
+
 }
-button{
-    margin-left: 45%;
-    margin-top: 10px;
+#forum-panel .new-question-answer{
+    width: 190px;
+    margin: 0 auto 15px;
+    border:  2px solid rgba(78,53,191,0.8);
+    text-align: center;
+    padding: 5px;
+    font-weight: normal;
+
+
 }
 
+#forum-panel .new-question-answer:hover{
+    background-color: rgba(78,53,191,0.8);
+    -webkit-transition:all .3s linear;
+}
+#forum-panel .new-question-answer a{
+    text-decoration: none;
+    font-weight: 100;
+    color:  #000000 !important;
+}
+#forum-panel .answer-panel {
+    width: 90% ;
+    margin: 0 auto ;
+}
+#forum-panel .answer-menu > div {
+     display: block;
+     margin: 0 auto;
+ }
+
+#forum-panel .answer-title-input {
+    margin-right: 89px !important;
+}
+#forum-panel .answer-title-input > input {
+    width: 240px;
+    border-radius: 3px;
+    border: none;
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+
 #forum-panel .answer-area {
-    width: 400px;
+    width: 240px;
     height: 100px;
-    margin-left: 32%;
-    margin-top: 10px;
 }
 
 
@@ -356,7 +402,22 @@ button{
      background-image: none;
      background-color: rgba(78,53,191,0.7);
      text-align: center;
+
  }
+#forum-panel .panel-heading .new-answer{
+    width: 190px;
+     margin: 0 auto 4px;
+     border:  2px solid rgba(83,196,49,0.8);
+ }
+#forum-panel .panel-heading .new-answer:hover{
+    background-color: rgba(83,196,49,0.8);
+    -webkit-transition:all .3s linear;
+}
+#forum-panel .panel-heading .new-answer a{
+    text-decoration: none;
+    font-weight: 100;
+}
+
 #forum-panel .panel-heading a{
     color: #000000 !important;
 }
@@ -387,8 +448,8 @@ button{
 }
 #forum-panel .panel-body{
     margin-left: 10px;
-    padding-top: 1px;
-    padding-bottom: 1px;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 #forum-panel .question-title{
