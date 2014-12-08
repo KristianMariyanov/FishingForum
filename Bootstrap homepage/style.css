@@ -15,7 +15,6 @@ body {
     margin-bottom: 40px;
 }
 
-
 h2 {
     color: #ffffff;
     font-size: 19pt;
@@ -25,26 +24,30 @@ h3{
     font-size: 19pt;
     vertical-align: middle;
 }
-
 h4{
     color: wheat;
-    text-align: center;
-    font-size: 1.2vw;
+    font-size: 16pt;
 }
-
 
 /* Header */
 .header .navbar-custom {
-    background-color: rgba(14, 196, 0, 0.8);
+    background-color: rgba(83,196,49,0.8);
     border-radius:0;
     height: 85px;
 }
 
 .header .navbar-custom .navbar-nav {
     margin-right:80px;
+    margin-top: 35px;
     font-size: 130%;
     padding-left: 20px;
     color: red;
+
+}
+@media screen and (max-width: 768px) {
+    .header .navbar-custom .collapse {
+        background-color: rgba(83,196,49,0.9);
+    }
 }
 
 .header .navbar-custom .navbar-nav li{
@@ -64,14 +67,20 @@ h4{
 
 .header .navbar-custom .navbar-brand {
     background: url("images/logo.png") no-repeat;
-    height:95px;
-    width: 175px;
     float: left;
+    width: 143px;
+    height: 85px;
     position: relative;
     margin-left: 20px;
+    margin-top: 2px;
+}
+.header .navbar-custom .navbar-header > div{
+   float: right;
 }
 .header .navbar-custom .navbar-toggle {
     background-color:#eeeeee;
+    float: none !important;
+    margin-left: 0;
 }
 .header .navbar-custom .icon-bar {
     background-color:#33aa33;
@@ -80,7 +89,7 @@ h4{
     text-align: right;
     margin-right: 2%;
     margin-top: 1%;
-
+    float: right !important;
 }
 .header .navbar-custom .login-button ul li{
     list-style-type: none;
@@ -98,8 +107,9 @@ h4{
 
 /* main */
 .corousel-background {
-    margin-left: 15%;
-    width: 70%;
+    margin-left: 10%;
+    width: 80%;
+    min-height: 200px;
     height: 90%;
     background-color: rgba(78,53,191,0.8);
 }
@@ -116,17 +126,17 @@ h4{
 }
 
 .carousel-caption  {
-    margin-bottom: 3%;
     margin-left: 20%;
-
+    margin-bottom: 20px;
+    vertical-align: top;
 }
 
 .carousel-caption h1 {
-    font-size: 2.5vw;
+    font-size: 15pt;
 }
 
 .carousel-caption p {
-    font-size: 1.1vw;
+    font-size: 12pt;
 }
 
 .carousel-control{
@@ -138,30 +148,35 @@ h4{
     top:30%;
 }
 
-.chevron-left{left:60%;}
-.chevron-right{right:60%;}
+.chevron-left{left:20%;}
+.chevron-right{right:20%;}
 
 
 .box-container{
     margin-top: 15px;
-    margin-left: 29%;
+    margin-left: 18%;
 }
 
 .div-content{
     background-color: rgba(78,53,191,0.8);
     padding: 0px !important;
     color: #ffffff;
-    margin-right: 10%;
-    height:auto
+    margin-right: 2%;
+    min-height: 210px;
+    height:auto;
+    width: 270px;
+    margin-bottom: 15px;
+
+
 }
 .div-content article{
     text-align: center;
-    font-size: 1.0vw;
+    font-size: 12pt;
     padding: 5px;
     margin-bottom: 20%;
 }
 .div-content article a {
-    font-size: 1.2vw;
+    font-size: 13pt;
     color: rgb(83,196,49);
 }
 
@@ -229,11 +244,11 @@ h4{
 .footer-container {
     margin: 0 auto;
     max-width: 680px;
-    margin-top: 8px;
     text-align: center;
 }
-.footer-container .text-muted {
-    color: #ffffff !important;
+.footer-container > article {
+
+    color: #ffffff;
 }
 
 
@@ -322,49 +337,41 @@ button{
 /* Forum Main Page */
 
 #forum-panel{
-    margin: 40px;
+    color: #000000 !important;
+}
+#forum-panel a{
+    color: #0a00b8 !important;
 }
 #forum-panel hr{
-    width: 90%;
-    margin: 2px 0 2px 50px;
+    width: 99%;
+    margin: 2px 0 2px 0;
     border-top: 1px solid #000000
 }​
- #forum-panel a{
-     color: #ee4152;
- }​
-  #forum-panel .col-sm-8{
-      padding-right: 1px;
-      padding-left: 0px;
-  }
-#forum-panel .panel-heading{
-    height: 33px;
-    background-image: none;
-    background-color: rgba(78,53,191,0.7);
-    text-align: center;
+
+#forum-panel .col-sm-8{
+  padding-right: 1px;
+  padding-left: 0;
 }
-#forum-panel .post-header {
-    background-color: rgba(78,53,191,0.7);
+#forum-panel .panel-heading{
+     background-image: none;
+     background-color: rgba(78,53,191,0.7);
+     text-align: center;
+ }
+#forum-panel .panel-heading a{
+    color: #000000 !important;
 }
 
 #forum-panel .panel {
     margin-bottom: 65px;
+    padding-bottom: 15px;
     min-width: 242px;
     min-height: 205px;
-    background-color: rgba(14, 196, 0, 0.9);
-
+    background-color: rgba(83,196,49,0.8);
 }
-#forum-panel .last-post {
-    background-color: rgba(14, 196, 0, 0.9);
-    color: #f5f5f5;
-    max-width: 354px;
-    padding-left: 7px;
-    text-align: center;
 
-}
 #forum-panel .active-user {
-    width: 90%;
+    width: 100%;
     vertical-align: top;
-    margin-left: 50px;
 }
 #forum-panel .active-user .author{
     display: inline-block;
@@ -375,11 +382,15 @@ button{
 
 #forum-panel .question-panel{
     display: inline-block;
-    max-width: 90%;
+    max-width: 100%;
     min-width:29%;
-    margin-left: 49px;
-
 }
+#forum-panel .panel-body{
+    margin-left: 10px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
 #forum-panel .question-title{
     width: 100%;
 }
@@ -390,7 +401,7 @@ button{
 #forum-panel .question-content{
     width: 100%;
 }
-#forum-panel .question-content p{
+#forum-panel .question-content > article{
     line-height: 1.5em;
     height: 3em;
     overflow: hidden;
@@ -398,7 +409,6 @@ button{
     white-space: pre-line;
     font-size: 8pt;
     color: #080808;
-
 }​
 
 

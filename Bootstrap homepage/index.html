@@ -11,12 +11,9 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <script src="js/jquery-2.1.1.min.js"></script>
     <script src="js/main.js"></script>
-	<script src="js/MoonPhasesAlgorithm.js"></script>
-	<script src="js/ImagesManager.js"></script>
-	<script src="js/Clock.js"></script>
 
 </head>
-    <body onload="timeDate();setInterval('timeDate()',1000)">
+    <body>
 
     <header class="header">
     </header>
@@ -35,7 +32,6 @@
             <div class="item active">
                 <div class="corousel-background">
                     <div class="img-class"><img src="images/fishing-03.jpg"></div>
-
                 </div>
                 <div class="carousel-caption">
                     <h1>Example headline.</h1>
@@ -76,7 +72,7 @@
     <div class="box-container">
         <!-- Example row of columns -->
 
-            <div class="col-xs-3 div-content">
+            <div class="col-sm-3 div-content">
                 <div class="header-background">
                     <h2>Forum</h2>
                 </div>
@@ -87,28 +83,31 @@
                         Please <a href="signup.html"> Sign up</a>  in our forum.
                     </article>
                 </section>
+            </div>
 
+        <div class="col-sm-3 div-content">
+            <div class="header-background">
+                <h2>Moon Calendar</h2>
             </div>
-			
-			 <div class="col-xs-3 div-content" id="container">
-                <div class="header-background">
-                   <h2>Moon Calendar</h2>
-                </div>
-				<div id="clock"></div>
-				<section>
-                    <span id="calendar"></span>
-                </section>
-				<div id="moon"></div>
-            </div>
-			
-            <div class="col-xs-3 div-content ">
+            <section>
+                <article>
+                    Moon Calendar content
+                </article>
+            </section>
+
+        </div>
+
+            <div class="col-sm-3 div-content ">
                 <div class="header-background">
                     <h2>News</h2>
                 </div>
                 <section>
-                    <h4>How to Fish for Shark</h4>
-                    <article>Fishing has traditionally been a way for mankind to nourish itself.
-                        Today, fishing has taken on more of a ...more</article>
+
+                    <article>
+                        <h4>How to Fish for Shark</h4>
+                        Fishing has traditionally been a way for mankind to nourish itself.
+                        Today, fishing has taken on more of a ...more
+                    </article>
                 </section>
             </div>
     </div>
