@@ -44,8 +44,11 @@ require(['modules/headersWithSession'], function (headers) {
 
         function createPost(title, content, status, category){
             var resultData;
-            var userId = localStorage.getItem("loggedUserId");
-            $.ajax({
+			var userId = localStorage.getItem("loggedUserId");
+            var acl = {};
+			acl[userId] = { "read": true, "write": true };
+            acl["*"] = { "read":true};
+			$.ajax({
                 method: "POST",
                 async: false,
                 url: 'https://api.parse.com/1/classes/question',
@@ -75,15 +78,7 @@ require(['modules/headersWithSession'], function (headers) {
                     },
                     "rating":0,
                     "viewCounter":0,
-                    "ALC":{ /// Only the user creating this can edit it. The others can only read it.
-                        userId: {
-                            "read": true,
-                            "write": true
-                        },
-                        "*": {
-                            "read": true
-                        }
-                    }
+                    "ACL":acl
                 }),
                 success: function(data){
                     resultData = data;
