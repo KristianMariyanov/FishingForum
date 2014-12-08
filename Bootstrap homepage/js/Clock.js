@@ -14,19 +14,13 @@
 
     var currTimeString = currHours + ":" + currMinutes + ":" + currSeconds + " " + timeOfDay;
 
-    var dateString = [];
-    var date = currTime.getDate();
+	var date = currTime.getDate();
     var day = currTime.getDay();
     var month = currTime.getMonth()+1;
     var year = currTime.getFullYear();
 
-    dateString.push(date);
-    dateString.push(day);
-    dateString.push(month);
-    dateString.push(year);
-    
     var timeDateString=getDay(day)+", "+date+" "+getMonth(month-1)+" "+year+" - "+currTimeString;
-	$("#sub-right").html(timeDateString+"<br />"+getLatinName(currTime)+"<br />"+
+	$("#sub-right").html(timeDateString+"<br />"+"Moon Phase: "+getLatinName(currTime)+"<br />"+
 	"Distance from Earth: "+calcMDist(currTime)+"<br />"+"Moon Age: "+calcMAge(currTime)+" days");
 	
     function getMonth(month) {
