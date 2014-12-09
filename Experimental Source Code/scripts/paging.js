@@ -1,11 +1,11 @@
-require(['modules/headersNoSession'], function (headers) {
-    var listItems = (function () {
-	
-		var getCategories = function () {
-                url = 'https://api.parse.com/1/classes/category';
-                return getResultsOfSpecificPage(url);
-            };
-			
+define (function () {
+        var listItems = (function () {
+
+        var getCategories = function () {
+            url = 'https://api.parse.com/1/classes/category';
+            return getResultsOfSpecificPage(url);
+        };
+
         var getUsersOfSpecificPage = function (page, resultsOfPage) {
             var skip = (page - 1) * resultsOfPage;
             return getResultsOfSpecificPage('https://api.parse.com/1/users?limit=' + resultsOfPage + '&skip=' + skip);
@@ -37,9 +37,12 @@ require(['modules/headersNoSession'], function (headers) {
 
         var getResultsOfSpecificPage = function (url) {
             var dataInfo = [];
-            headers;
 
             $.ajax({
+                headers: {
+                    "X-Parse-Application-Id": "qMgTURpDZUZXbS8OyDfvICSCMS5YkkpuMn9vIlco",
+                    "X-Parse-REST-API-Key": "KOWQQ2S9fB5Hx7bNjiv4bskSQrSuZvSniHUpF4Bb"
+                },
                 method: 'GET',
                 url: url,
                 async: false,
@@ -50,18 +53,19 @@ require(['modules/headersNoSession'], function (headers) {
                 error: function (error) {
                     console.log(error);
                 }
-            })
+            });
             return dataInfo
-        }
+        };
         return {
             getUsersOfSpecificPage: getUsersOfSpecificPage,
             getQuestionsOfSpecificPageByCategory: getQuestionsOfSpecificPageByCategory,
             getQuestionsOfSpecificPageByUser: getQuestionsOfSpecificPageByUser,
             getAnswersOfSpecificPageByQuestion: getAnswersOfSpecificPageByQuestion,
             getAnswersOfSpecificPageByUser: getAnswersOfSpecificPageByUser,
-			getCategories : getCategories
+            getCategories : getCategories
         }
     })();
+    console.log(listItems.getCategories());
+    return listItems;
+});
 
-	console.log(listItems.getCategories());
-})
