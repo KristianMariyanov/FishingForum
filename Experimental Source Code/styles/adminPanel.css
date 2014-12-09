@@ -11,35 +11,35 @@ body{
     padding-bottom: 60px;
 }
 
-body > div{
-    width: 960px;
-    margin: 0 auto;
-    margin-top: 20px;
-    border-radius: 3px;
-    border: none;
-    box-shadow: rgb(170, 170, 170) 0 1px 2px;
-    background: #ffffff;
-}
+    body > div{
+         width: 960px;
+         margin: 0 auto;
+         margin-top: 20px;
+         border-radius: 3px;
+         border: none;
+         box-shadow: rgb(170, 170, 170) 0 1px 2px;
+         background: #ffffff;
+     }
 
-body > div > table{
-    border-collapse: collapse;
-    border: 1px solid gray;
-    width: 100%;
-}
+        body > div > table{
+            border-collapse: collapse;
+            border: 1px solid gray;
+            width: 100%;
+        }
 
-body > div > table td, body > div > table th{
-    border: 1px solid gray;
-    text-align: center;
-}
+            body > div > table td, body > div > table th{
+                border: 1px solid gray;
+                text-align: center;
+            }
 
-body > div > table th{
-    font-size: 20px;
-}
+            body > div > table th{
+                 font-size: 20px;
+             }
 
-body > div > table td{
-    font-size: 16px;
-    padding: 10px;
-}
+            body > div > table td{
+                font-size: 16px;
+                padding: 10px;
+            }
 
 header{
     width: 100%;
@@ -48,34 +48,34 @@ header{
     box-shadow: 0 1px 2px #aaa;
 }
 
-header > ul{
-    width: 100%;
-    display: inline-block;
-    text-align: center;
-    list-style-type: none;
-}
+    header > ul{
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+        list-style-type: none;
+    }
 
-header > ul > li {
-    display: inline-block;
-    line-height: 35px;
-    font-size: 17px;
-    text-transform: uppercase;
-    padding: 5px;
-    margin-left: 30px;
-    color: #2e2e2e;
-}
+        header > ul > li {
+            display: inline-block;
+            line-height: 35px;
+            font-size: 17px;
+            text-transform: uppercase;
+            padding: 5px;
+            margin-left: 30px;
+            color: #2e2e2e;
+        }
 
-header > ul > li:hover {
-    cursor: pointer;
-    color: black;
-    border-bottom: 1px solid gray;
+            header > ul > li:hover {
+                cursor: pointer;
+                color: black;
+                border-bottom: 1px solid gray;
 
-}
+            }
 
-header > ul > li > a{
-    text-decoration: none;
-    color: inherit;
-}
+            header > ul > li > a{
+                text-decoration: none;
+                color: inherit;
+            }
 
 .editInputText{
     display: block;
