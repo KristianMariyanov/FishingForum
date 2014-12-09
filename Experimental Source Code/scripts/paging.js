@@ -1,18 +1,23 @@
 define (function () {
-        var listItems = (function () {
+    var listItems = (function () {
 
         var getCategories = function () {
-            url = 'https://api.parse.com/1/classes/category';
+            var url = 'https://api.parse.com/1/classes/category';
+            return getResultsOfSpecificPage(url);
+        };
+
+        var getUserById = function (id) {
+            var url =  'https://api.parse.com/1/users/' + id;
             return getResultsOfSpecificPage(url);
         };
 
         var getCategotyById = function (id) {
-            url = 'https://api.parse.com/1/classes/category/' + id;
+            var url = 'https://api.parse.com/1/classes/category/' + id;
             return getResultsOfSpecificPage(url);
         }
 
         var getQuestionById = function (id) {
-            url = 'https://api.parse.com/1/classes/question/' + id +'?include=author,category';
+            var url = 'https://api.parse.com/1/classes/question/' + id +'?include=author,category';
             return getResultsOfSpecificPage(url);
         };
 
@@ -23,26 +28,28 @@ define (function () {
 
         var getQuestionsOfSpecificPageByCategory = function (page, resultsOfPage, categoryId) {
             var skip = (page - 1) * resultsOfPage;
-            url = 'https://api.parse.com/1/classes/question?include=author,category&where={"category":{"__type":"Pointer","className":"category","objectId":"' + categoryId + '"}}&limit=' + resultsOfPage + '&skip=' + skip;
+            var url = 'https://api.parse.com/1/classes/question?include=author,category&where={"category":{"__type":"Pointer","className":"category","objectId":"' + categoryId + '"}}&limit=' + resultsOfPage + '&skip=' + skip;
             return getResultsOfSpecificPage(url);
         };
 
-        var getQuestionsOfSpecificPageByUser = function (page, resultsOfPage, userId) {
-            var skip = (page - 1) * resultsOfPage;
-            url = 'https://api.parse.com/1/classes/question?where={"author":{"__type":"Pointer","className":"_User","objectId":"' + userId + '"}}&limit=' + resultsOfPage + '&skip=' + skip;
+        var getQuestionsOfSpecificPageByUser = function (userId) {
+            var url = 'https://api.parse.com/1/classes/question?where={"author":{"__type":"Pointer","className":"_User","objectId":"' + userId + '"}}';
             return getResultsOfSpecificPage(url);
         };
 
         var getAnswersOfSpecificPageByQuestion = function (page, resultsOfPage, questionId) {
             var skip = (page - 1) * resultsOfPage;
-            url = 'https://api.parse.com/1/classes/answer?include=author,question&where={"question":{"__type":"Pointer","className":"question","objectId":"' + questionId + '"}}&limit=' + resultsOfPage + '&skip=' + skip;
+            var url = 'https://api.parse.com/1/classes/answer?include=author,question&where={"question":{"__type":"Pointer","className":"question","objectId":"' + questionId + '"}}&limit=' + resultsOfPage + '&skip=' + skip;
             return getResultsOfSpecificPage(url);
         };
 
-        var getAnswersOfSpecificPageByUser = function (page, resultsOfPage, userId) {
-            var skip = (page - 1) * resultsOfPage;
-            url = 'https://api.parse.com/1/classes/answer?where={"author":{"__type":"Pointer","className":"_User","objectId":"' + userId + '"}}&limit=' + resultsOfPage + '&skip=' + skip;
+        var getAnswersOfSpecificPageByUser = function (userId) {
+            var url = 'https://api.parse.com/1/classes/answer?include=question&where={"author":{"__type":"Pointer","className":"_User","objectId":"' + userId + '"}}';
             return getResultsOfSpecificPage(url);
+        };
+
+        var incrementViewCounter = function (questionId) {
+
         };
 
         var getResultsOfSpecificPage = function (url) {
@@ -64,7 +71,9 @@ define (function () {
             getAnswersOfSpecificPageByUser: getAnswersOfSpecificPageByUser,
             getCategories : getCategories,
             getQuestionById : getQuestionById,
-            getCategotyById : getCategotyById
+            getCategotyById : getCategotyById,
+            getUserById : getUserById,
+            incrementViewCounter : incrementViewCounter
         }
     })();
     return listItems;

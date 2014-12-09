@@ -7,7 +7,7 @@ require(['modules/headersWithSession'], function (headers) {
         $( "#answerForm" ).submit(function(e) {
             e.preventDefault();
             var link = window.location.href.split('/');
-            var questionId = link[link.length - 1];
+            var questionId = link[link.length - 2];
             var content = $("#answerContent").val();
 
 //            createdPostData = createPost(title, content, status, category);
