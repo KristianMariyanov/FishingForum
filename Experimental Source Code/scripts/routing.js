@@ -7,7 +7,7 @@ require(['paging'], function (listItems) {
             });
 
             this.get('#/login', function () {
-                $('#forum-panel').load('createPost.html');
+                $('#forum-panel').load('templates/loginTemplate.html');
             });
 
             this.get('#/register', function () {
@@ -107,9 +107,16 @@ require(['paging'], function (listItems) {
 
                 $('#forum-panel').load('createPost.html');
             });
+
+            this.get('#/news', function () {
+                listItems.getNews().done(function (data) {
+
+                })
+                $('#forum-panel').load('createPost.html');
+            });
         });
         $(function () {
-            app.run()
+            app.run('#/')
         });
     })(jQuery);
 })

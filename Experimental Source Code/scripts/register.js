@@ -5,8 +5,8 @@ require(['modules/headersNoSession'], function (headers) {
 //        var formRegister = $('#registerForm');
 //        formRegister.submit(registerUser);
 
-        $( "#registerForm" ).click(function(e) {
-            e.preventDefault();
+        $("#registerForm").click(function() {
+            debugger;
             var username = $("#username").val();
             var password = $("#password").val();
             var email = $("#email").val();
@@ -56,6 +56,7 @@ require(['modules/headersNoSession'], function (headers) {
                 url: 'https://api.parse.com/1/classes/_Role/fMLotQQa9j',
                 success: function (data) {
                     $('#forum-panel').html('<h1>Successfully Registration</h1>');
+                    window.location.href = '#/login';
                 },
                 error: function (err) {
                     console.log("Fail!!!! --");

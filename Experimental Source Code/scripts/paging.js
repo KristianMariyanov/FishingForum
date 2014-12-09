@@ -6,6 +6,11 @@ define (function () {
             return getResultsOfSpecificPage(url);
         };
 
+        var getNews = function () {
+            var url = 'https://api.parse.com/1/classes/News'
+            return getResultsOfSpecificPage(url);
+        };
+
         var getUserById = function (id) {
             var url =  'https://api.parse.com/1/users/' + id;
             return getResultsOfSpecificPage(url);
@@ -73,7 +78,7 @@ define (function () {
             getQuestionById : getQuestionById,
             getCategotyById : getCategotyById,
             getUserById : getUserById,
-            incrementViewCounter : incrementViewCounter
+            getNews : getNews
         }
     })();
     return listItems;

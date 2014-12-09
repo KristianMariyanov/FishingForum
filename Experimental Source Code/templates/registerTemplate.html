@@ -7,10 +7,14 @@
         <input type="text" id="username" class="signup-control" placeholder="Username" required="">
         <input type="password" id="password" class="signup-control" placeholder="Password" required="">
         <input type="password" id="repeatPassword" class="signup-control" placeholder="Repeat Password" required="">
-        <input type="Email" id="inputEmail" class="signup-control" placeholder="Email" required="">
+        <input type="Email" id="email" class="signup-control" placeholder="Email" required="">
         <textarea  id="aboutMe" class="signup-control" placeholder="About me"></textarea>
     </div>
     <div class="enter-button">
-        <input id='registerForm' type="image" src="images/enter.png" />
+        <input id="registerForm" type="image" src="images/enter.png" />
     </div>
 </form>
+
+<script>
+    require(['register']);
+</script>

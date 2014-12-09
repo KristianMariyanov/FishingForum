@@ -1,7 +1,7 @@
 <form class="form" role="form">
     <h2>Please Login</h2>
     <div class="enter-button">
-        <input type="image" src="images/enter.png" />
+        <input id="logInForm" type="image" src="images/enter.png" />
     </div>
     <div class="input-container">
         <label for="username" class="sr-only">Username</label>
@@ -19,3 +19,7 @@
         </label>
     </div>
 </form>
+
+<script>
+    require(['logIn']);
+</script>

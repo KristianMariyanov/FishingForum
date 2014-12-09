@@ -4,8 +4,7 @@ require(['modules/headersNoSession'], function (headers) {
         headers;
 
         //Actual Login
-        $("#logInForm").submit(function (e) {
-            e.preventDefault();
+        $("#logInForm").click(function () {
             logIn($("#username").val(), $("#password").val());
         });
 
@@ -20,6 +19,7 @@ require(['modules/headersNoSession'], function (headers) {
                     console.log(JSON.stringify(data));
                     document.cookie = "sessionToken=" + data.sessionToken;
                     localStorage.setItem("loggedUserId", data.objectId);
+                    window.location.href = '#/'
                 },
                 error: function (err) {
                     console.log(err);
