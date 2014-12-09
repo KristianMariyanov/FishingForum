@@ -1,7 +1,7 @@
 <form class="form" role="form">
     <h2>Add New Question</h2>
     <div class="enter-button">
-        <input type="image" src="images/enter.png" />
+        <input id="postForm" type="image" src="images/enter.png" />
     </div>
     <div class="input-container">
         <label for="postTitle">Question Title</label><br/>
@@ -17,3 +17,6 @@
         <input type="text" id="postTags"/><br/>
     </div>
 </form>
+<script>
+    require(['createPost']);
+</script>

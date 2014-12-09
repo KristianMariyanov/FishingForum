@@ -109,8 +109,7 @@ require(['paging'], function (listItems) {
             });
 
             this.get('#/forum/:category/createQuestion', function () {
-
-                $('#forum-panel').load('createPost.html');
+                $('#forum-panel').load('templates/addNewQuestionTemplate.html');
             });
 
             this.get('#/news', function () {

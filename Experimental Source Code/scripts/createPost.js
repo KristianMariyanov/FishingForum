@@ -4,17 +4,21 @@ require(['modules/headersWithSession'], function (headers) {
 
 //Actual Post Creating
         var createdPostData;
-        $( "#postForm" ).submit(function(e) {
-            e.preventDefault();
-            $('#loaderImg').show();
+        $( "#postForm" ).click(function() {
+            debugger;
             var title = $("#postTitle").val();
             var content = $("#postContent").val();
             var status = $( "#category option:selected").attr('id');
             var category = $("#category").val();
             var tags = $("#postTags").val();
 
-            createdPostData = createPost(title, content, status, category);
-            createPostTags(tags, createdPostData.objectId);
+            createPost(title, content, status).done(function (data) {
+                var createdPostData = data;
+                debugger;
+                createPostTags(tags, createdPostData.objectId);
+                window.location.href = '#/forum/categories/' + status;
+            });
+
 
         });
 
@@ -43,12 +47,11 @@ require(['modules/headersWithSession'], function (headers) {
 
 
         function createPost(title, content, status, category){
-            var resultData;
 			var userId = localStorage.getItem("loggedUserId");
             var acl = {};
 			acl[userId] = { "read": true, "write": true };
             acl["*"] = { "read":true};
-			$.ajax({
+			return $.ajax({
                 method: "POST",
                 async: false,
                 url: 'https://api.parse.com/1/classes/question',
@@ -71,24 +74,16 @@ require(['modules/headersWithSession'], function (headers) {
                     {
                         "__type":"Pointer",
                         "className":"_User",
-                        //"objectId":localStorage.getItem("loggedUserId")
+                        "objectId":localStorage.getItem("loggedUserId")
                         // TODO: unquote the real code
                         //hardcoded for test purposes
-                        "objectId":"rLS3fzUsH5"
+                        //"objectId":"rLS3fzUsH5"
                     },
                     "rating":0,
                     "viewCounter":0,
                     "ACL":acl
-                }),
-                success: function(data){
-                    resultData = data;
-                    console.log(data)
-                },
-                error: function(err){
-                    console.log(err);
-                }
+                })
             });
-            return resultData;
         }
 
         function getCategories(){
