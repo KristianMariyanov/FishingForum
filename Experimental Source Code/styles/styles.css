@@ -153,7 +153,7 @@ h4 {
 .carousel-caption article {
     font-size: 12pt;
     line-height: 1.5em;
-    height: 3em;
+    height: 10em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: pre-line;
