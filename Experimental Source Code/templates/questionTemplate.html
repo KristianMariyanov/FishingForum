@@ -1,0 +1,41 @@
+<section id="forum-panel">
+    <div class="col-sm-12 panel">
+        <div class="panel-heading">
+            <h3>{{question.title}}</h3>
+        </div>
+        <div class="panel-body">
+            <div class="question-panel">
+                <article>{{question.content}}</article>
+            </div>
+            <hr>
+            <div class="active-user">
+                <!--TODO: fix href-->
+                <div class="category">Category: <a href="#">{{question.category.name}}</a></div>
+                <!--TODO: fix href-->
+                <div class="author">Author: <a href="#">{{question.author.username}}</a></div>
+                <div class="date">Created at: {{question.createdAt}}</div>
+            </div>
+            <hr>
+
+            {{#results}}
+            <div class="answer-panel">
+                <article>{{content}}</article>
+                <hr>
+                <div class="active-user">
+                    <div class="author">Author: <a href="#">{{author.username}}</a></div>
+                    <div class="date">Created at: {{createdAt}}</div>
+                </div>
+                <hr>
+            </div>
+        </div>
+        {{/results}}
+
+        <!--TODO: fix href-->
+
+        <div class="answer-menu">
+            <label>Add New Answer:</label><br/>
+            <textarea class="answer-area"></textarea>
+            <div class="new-question-answer"><a href="#">Submit Answer</a></div>
+        </div>
+    </div>
+</section>
