@@ -1,0 +1,49 @@
+<div id="user-page">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="user-panel-heading">
+                <h3 class="panel-title">Personal Information</h3>
+                <div class="username">
+                    Username: {{username}}
+                </div>
+                <div class="rating">
+                    Rating: {{rating}}
+                </div>
+                <div class="firstName">
+                    First Name: {{firstName}}
+                </div>
+                <div class="lastName">
+                    Last Name: {{lastName}}
+                </div>
+                <div class="aboutMe">
+                    About Me: {{aboutMe}}
+                </div>
+            </div>
+        </div>
+
+        {{#questions}}
+        <div class="col-sm-4">
+            <div class="user-panel-heading">
+                <h3 class="panel-title">Forum Questions</h3>
+                <div class="user-questions">
+                    <!--TODO: fix href-->
+                    <div><h4><a href="#">{{title}}</a></h4></div>
+                    <div>{{content}}</div>
+                </div>
+            </div>
+        </div>
+        {{/questions}}
+
+        {{#answers}}
+        <div class="col-sm-4">
+            <div class="user-panel-heading">
+                <h3 class="panel-title">Forum Answers</h3>
+                <div class="user-answers">
+                    <div>{{content}}</div>
+                    <br/>
+                </div>
+            </div>
+        </div>
+        {{/answers}}
+    </div>
+</div>
