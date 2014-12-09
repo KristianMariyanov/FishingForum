@@ -292,7 +292,10 @@ h4 {
     }
 
     #user-page .panel-title {
-        background-color: #000ab8;
+        background-image: none;
+        background-color: rgba(78,53,191,0.7);
+        text-align: center;
+        padding: 10px;
     }
 
     #user-page .image img {
