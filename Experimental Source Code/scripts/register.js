@@ -5,7 +5,7 @@ require(['modules/headersNoSession'], function (headers) {
 //        var formRegister = $('#registerForm');
 //        formRegister.submit(registerUser);
 
-        $( "#registerForm" ).submit(function(e) {
+        $( "#registerForm" ).on('click', function(e) {
             e.preventDefault();
             var username = $("#username").val();
             var password = $("#password").val();
@@ -55,7 +55,7 @@ require(['modules/headersNoSession'], function (headers) {
                     }}),
                 url: 'https://api.parse.com/1/classes/_Role/fMLotQQa9j',
                 success: function (data) {
-                    console.log('Successfully assigned a role!');
+                    $('#forum-panel').html('<h1>Successfully Registration</h1>');
                 },
                 error: function (err) {
                     console.log("Fail!!!! --");

@@ -12,7 +12,7 @@ require(['paging'], function (listItems) {
 
             this.get('#/register', function () {
                 //register form
-                $('#forum-panel').load('createPost.html');
+                $('#forum-panel').load('templates/registerTemplate.html');
             });
 
             this.get('#/forum', function () {
