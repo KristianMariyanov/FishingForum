@@ -5,7 +5,7 @@ require(['modules/headersNoSession'], function (headers) {
 //        var formRegister = $('#registerForm');
 //        formRegister.submit(registerUser);
 
-        $( "#registerForm" ).on('click', function(e) {
+        $( "#registerForm" ).click(function(e) {
             e.preventDefault();
             var username = $("#username").val();
             var password = $("#password").val();
