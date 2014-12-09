@@ -3,7 +3,7 @@ require(['paging'], function (listItems) {
         var app = $.sammy(function () {
 
             this.get('#/', function () {
-                $('#forum-panel').load('search.html'/*index.html*/);
+                $('#forum-panel').load('templates/indexTemplate.html');
             });
 
             this.get('#/login', function () {
@@ -13,6 +13,11 @@ require(['paging'], function (listItems) {
             this.get('#/register', function () {
                 //register form
                 $('#forum-panel').load('templates/registerTemplate.html');
+            });
+
+            this.get('#/about', function () {
+                //register form
+                $('#forum-panel').load('templates/aboutUsTemplate.html');
             });
 
             this.get('#/forum', function () {
@@ -110,9 +115,11 @@ require(['paging'], function (listItems) {
 
             this.get('#/news', function () {
                 listItems.getNews().done(function (data) {
-
+                    $.get('templates/newsTemplate.html', function (template) {
+                        var output = Mustache.to_html(template, data);
+                        $('#forum-panel').html(output);
+                    })
                 })
-                $('#forum-panel').load('createPost.html');
             });
         });
         $(function () {
