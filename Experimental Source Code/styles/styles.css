@@ -413,7 +413,7 @@ h4 {
 }
 
     #forum-panel a {
-        color: #0a00b8 !important;
+        color: #0a00b8;
     }
 
     #forum-panel hr {
@@ -508,6 +508,23 @@ h4 {
         font-size: 8pt;
         color: #080808;
     }
+
+#forum-panel > div.new-answer{
+    font-size: larger;
+}
+
+#forum-panel > div.new-answer .btnQuestion{
+    display: inline-block;
+    text-align: center;
+    background-color: rgba(78,53,191,0.7);
+    padding:10px 50px;
+    color: white;
+    font-size: larger;
+}
+
+#forum-panel > div.new-answer .btnQuestion:hover{
+    color: black;
+}
 
 
 
