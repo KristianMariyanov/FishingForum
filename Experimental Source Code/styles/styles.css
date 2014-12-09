@@ -382,7 +382,7 @@ h4 {
 
 #forum-panel .answer-panel {
     width: 90%;
-    margin: 0 auto;
+    margin: 50px auto;
 }
 
 #forum-panel .answer-menu > div {
@@ -390,21 +390,11 @@ h4 {
     margin: 0 auto;
 }
 
-#forum-panel .answer-title-input {
-    margin-right: 89px !important;
-}
-
-    #forum-panel .answer-title-input > input {
-        width: 240px;
-        border-radius: 3px;
-        border: none;
-        opacity: 0.8;
-        margin-bottom: 10px;
-    }
-
 #forum-panel .answer-area {
-    width: 240px;
+    width: 95%;
+    padding: 10px;
     height: 100px;
+    margin-bottom: 20px;
 }
 
 /* Forum Main Page */
