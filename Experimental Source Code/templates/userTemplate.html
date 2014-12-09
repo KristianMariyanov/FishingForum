@@ -21,31 +21,34 @@
             </div>
         </div>
 
-        {{#questions}}
+
         <div class="col-sm-4">
             <div class="user-panel-heading">
                 <h3 class="panel-title">Forum Questions</h3>
-                <div class="user-questions">
-                    <!--TODO: fix href-->
-                    <div><h4><a href="#">{{title}}</a></h4></div>
-                    <div>{{content}}</div>
-                </div>
+                {{#questions}}
+                    <div class="user-questions">
+                        <!--TODO: fix href-->
+                        <div><h4><a href="#/forum/{{objectId}}">{{title}}</a></h4></div>
+                        <div>{{content}}</div>
+                    </div>
+                {{/questions}}
             </div>
         </div>
-        {{/questions}}
 
-        {{#answers}}
+
         <div class="col-sm-4">
             <div class="user-panel-heading">
                 <h3 class="panel-title">Forum Answers</h3>
-                <div class="user-answers">
-                    <!--TODO: fix href-->
-                    <div><h4><a href="#">Question: {{question.title}}</a></h4></div>
-                    <div>{{content}}</div>
-                    <br/>
-                </div>
+                {{#answers}}
+                    <div class="user-answers">
+                        <!--TODO: fix href-->
+                        <div><h4><a href="#/forum/{{question.objectId}}">Question: {{question.title}}</a></h4></div>
+                        <div>{{content}}</div>
+                        <br/>
+                    </div>
+                {{/answers}}
             </div>
         </div>
-        {{/answers}}
+
     </div>
 </div>

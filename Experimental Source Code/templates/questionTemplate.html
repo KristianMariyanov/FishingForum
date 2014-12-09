@@ -1,3 +1,4 @@
+<div class="new-answer"><a class="btnQuestion" href="#">New Question</a></div>
 <section id="forum-panel">
     <div class="col-sm-12 panel">
         <div class="panel-heading">
@@ -10,9 +11,9 @@
             <hr>
             <div class="active-user">
                 <!--TODO: fix href-->
-                <div class="category">Category: <a href="#">{{question.category.name}}</a></div>
+                <div class="category">Category: <a href="#/forum/category/{{question.category.objectId}}">{{question.category.name}}</a></div>
                 <!--TODO: fix href-->
-                <div class="author">Author: <a href="#">{{question.author.username}}</a></div>
+                <div class="author">Author: <a href="#/users/{{question.author.objectId}}">{{question.author.username}}</a></div>
                 <div class="date">Created at: {{question.createdAt}}</div>
             </div>
             <hr>
@@ -22,7 +23,7 @@
                 <article>{{content}}</article>
                 <hr>
                 <div class="active-user">
-                    <div class="author">Author: <a href="#">{{author.username}}</a></div>
+                    <div class="author">Author: <a href="#/users/{{author.objectId}}">{{author.username}}</a></div>
                     <div class="date">Created at: {{createdAt}}</div>
                 </div>
                 <hr>
