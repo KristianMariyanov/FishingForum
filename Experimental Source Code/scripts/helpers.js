@@ -59,18 +59,7 @@ function getTagsByPopularity(){
     return tags;
 }
 
-function updateTagCount(tagId, currentCount){
-    $.ajax({
-        method: "PUT",
-        async:true,
-        url: 'https://api.parse.com/1/classes/tag/' + tagId,
-        contentType: "application/json",
-        data: JSON.stringify({
-            "counter":(currentCount+1)
-        }),
-        error: errorReport
-    });
-}
+
 
 
 

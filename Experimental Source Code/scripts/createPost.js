@@ -15,8 +15,10 @@ require(['modules/headersWithSession'], function (headers) {
             createPost(title, content, status).done(function (data) {
                 var createdPostData = data;
                 debugger;
-                createPostTags(tags, createdPostData.objectId);
-                window.location.href = '#/forum/categories/' + status;
+                createPostTags(tags, createdPostData.objectId).done(function (data) {
+                    window.location.href = '#/forum/' + createdPostData.objectId;
+                });
+
             });
 
 
@@ -164,6 +166,21 @@ require(['modules/headersWithSession'], function (headers) {
             console.log(err);
         }
     })
+
+    function updateTagCount(tagId, currentCount){
+        $.ajax({
+            method: "PUT",
+            async:false,
+            url: 'https://api.parse.com/1/classes/tag/' + tagId,
+            contentType: "application/json",
+            data: JSON.stringify({
+                "counter":(currentCount+1)
+            }),
+            error: function (er) {
+                console.log(er)
+            }
+        });
+    }
 })
 
 
