@@ -63,7 +63,7 @@ require(['modules/headersWithSession'], function (headers) {
             clearQuestionTable();
             questions.forEach(function(item){
                 $("#questionTable").append("" +
-                    "<tr><td>" + item.objectId + "</td><td id='questionTitle" + item.objectId + "'>" + item.title + "</td><td style='overflow: hidden; width: 200px; height: 40px;' id='questionContent" + item.objectId +"'>" + item.content + "</td><td>" +
+                    "<tr><td>" + item.objectId + "</td><td id='questionTitle" + item.objectId + "'>" + escapeHtml(item.title) + "</td><td style='overflow: hidden; width: 200px; height: 40px;' id='questionContent" + item.objectId +"'>" + escapeHtml(item.content) + "</td><td>" +
                     "<a href='#' id='delete-" + item.objectId + "'>Delete</a> " +
                     "<a href='#' id='edit-" + item.objectId + "'>Edit</a>" +
                     "</td></tr>" +
@@ -106,7 +106,7 @@ require(['modules/headersWithSession'], function (headers) {
             clearTagsTable();
             tags.forEach(function(item){
                 $("#tagsTable").append("" +
-                    "<tr><td>" + item.objectId + "</td><td>" + item.title + "</td><td>" + item.counter + "</td><td>" +
+                    "<tr><td>" + item.objectId + "</td><td>" + escapeHtml(item.title) + "</td><td>" + item.counter + "</td><td>" +
                     "<a href='#' id='delete-" + item.objectId + "'>Delete</a> " +
                     "</td></tr>" +
                     "");
@@ -233,5 +233,18 @@ require(['modules/headersWithSession'], function (headers) {
             alert("Error!");
             console.log(err);
         }
+        function escapeHtml(string) {
+            return String(string).replace(/[&<>"'\/]/g, function (s) {
+                return entityMap[s];
+            });
+        }
+        var entityMap = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': '&quot;',
+            "'": '&#39;',
+            "/": '&#x2F;'
+        };
     })
 });
