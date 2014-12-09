@@ -26,4 +26,34 @@
             </div>
         {{/questions}}
     </div>
+</article><div class="new-answer"><a class="btnQuestion" href="#">New Question</a></div>
+
+<article class="col-sm-12">
+    <div class="panel ">
+        <div class="panel-heading">
+            <div class="new-answer"><a href="#/forum/{{objectId}}/createQuestion">New Question</a></div>
+            <h3><a href="#/forum/category/{{objectId}}">{{name}}</a></h3>
+        </div>
+        {{#questions}}
+            <div class="panel-body">
+                <div class="question-panel">
+                    <div class="question-title">
+                        <h4><a href="#/forum/{{objectId}}/">{{title}}</a></h4>
+                    </div>
+                    <div class="question-viewing">
+                        <article>({{viewCounter}})</article>
+                    </div>
+                    <div class="question-content">
+                        <article>{{content}}</article>
+                    </div>
+                </div>
+                <hr>
+                <div class="active-user">
+                    <div class="author">Author: <a href="#">{{author.username}}</a></div>
+                    <div class="date">{{createdAt}}</div>
+                </div>
+                <hr>
+            </div>
+        {{/questions}}
+    </div>
 </article>
