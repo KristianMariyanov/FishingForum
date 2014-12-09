@@ -104,6 +104,7 @@ h4 {
 
     .header .navbar-custom .login-button ul li {
         list-style-type: none;
+        display:inline-block;
     }
 
         .header .navbar-custom .login-button ul li a {
@@ -183,7 +184,7 @@ h4 {
 
 .div-content {
     background-color: rgba(78, 53, 191, 0.8);
-    padding: 0px !important;
+    padding: 10px !important;
     color: #ffffff;
     margin-left: 11%;
     margin-right: 2%;
