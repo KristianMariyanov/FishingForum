@@ -23,7 +23,7 @@ require(['paging'], function (listItems) {
                     $.each(data.results, function (index, value) {
                         listItems.getQuestionsOfSpecificPageByCategory(1,2,value['objectId']).done(function (dataQuestions) {
                             value['questions'] = dataQuestions.results;
-                            $.get('templates/categoryTemplate.html', function (template) {
+                            $.get('templates/forumTemplate.html', function (template) {
                                 var output = Mustache.to_html(template, value);
                                 $('#main').append(output);
                             })
@@ -47,10 +47,16 @@ require(['paging'], function (listItems) {
                 var categoryId = this.params['category'];
                 var page = this.params['page'];
                 //TODO: refactor
-                listItems.getQuestionsOfSpecificPageByCategory(page,5,categoryId).done(function (data) {
-                    
+                listItems.getCategotyById(categoryId).done(function (data) {
+                    $('#main').html('');
+                    listItems.getQuestionsOfSpecificPageByCategory(page,5,categoryId).done(function (dataQuestions) {
+                        dataQuestions['category'] = data;
+                        $.get('templates/categotyTemplate.html', function (template) {
+                            var output = Mustache.to_html(template, dataQuestions);
+                            $('#main').append(output);
+                        })
+                    })
                 });
-                //$('#main').load('createPost.html');
             });
 
             this.get('#/users', function () {

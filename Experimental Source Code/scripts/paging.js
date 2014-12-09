@@ -6,6 +6,11 @@ define (function () {
             return getResultsOfSpecificPage(url);
         };
 
+        var getCategotyById = function (id) {
+            url = 'https://api.parse.com/1/classes/category/' + id;
+            return getResultsOfSpecificPage(url);
+        }
+
         var getQuestionById = function (id) {
             url = 'https://api.parse.com/1/classes/question/' + id +'?include=author,category';
             return getResultsOfSpecificPage(url);
@@ -58,7 +63,8 @@ define (function () {
             getAnswersOfSpecificPageByQuestion: getAnswersOfSpecificPageByQuestion,
             getAnswersOfSpecificPageByUser: getAnswersOfSpecificPageByUser,
             getCategories : getCategories,
-            getQuestionById : getQuestionById
+            getQuestionById : getQuestionById,
+            getCategotyById : getCategotyById
         }
     })();
     return listItems;
