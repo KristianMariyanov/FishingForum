@@ -1,47 +1,29 @@
 <article class="col-sm-12">
     <div class="panel ">
         <div class="panel-heading">
-            <div class="new-answer"><a href="#">New Answer</a></div>
-            <h3><a href="categoryMainPage.html">CATEGORY 1</a></h3>
+            <div class="new-answer"><a href="#/forum/{{objectId}}/createQuestion">New Question</a></div>
+            <h3><a href="#/forum/category/{{objectId}}">{{name}}</a></h3>
         </div>
-        <div class="panel-body">
-            <div class="question-panel">
-                <div class="question-title">
-
-                    <h4><a href="questionMainPage.html">Question title</a></h4>
+        {{#questions}}
+            <div class="panel-body">
+                <div class="question-panel">
+                    <div class="question-title">
+                        <h4><a href="#/forum/{{objectId}}/">{{title}}</a></h4>
+                    </div>
+                    <div class="question-viewing">
+                        <article>({{viewCounter}})</article>
+                    </div>
+                    <div class="question-content">
+                        <article>{{content}}</article>
+                    </div>
                 </div>
-                <div class="question-viewing">
-                    <article>(324 Viewing)</article>
+                <hr>
+                <div class="active-user">
+                    <div class="author">Author: <a href="#">{{author.username}}</a></div>
+                    <div class="date">{{createdAt}}</div>
                 </div>
-                <div class="question-content">
-                    <article>scing elit, sed do, sed do eiusmod temscing eli, it, sed do, sed do eiusmod temscing eli, it, sed do, sed do eiusmod temscing eli, it, sed do, sed do eiusmod temscing eli, it, sed do, sed do eiusmod temscing eli, it, sed do, sed do eiusmod temscing eli, it, sed do, sed do eiusmod temscing eli, sed do eiusmod temscing eli, sed do eiusmod temscing eli eiusmod temscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</article>
-                </div>
+                <hr>
             </div>
-            <hr>
-            <div class="active-user">
-                <div class="author">Author: <a href="#">pesho</a></div>
-                <div class="date">10.02.2014 09:45:34</div>
-            </div>
-            <hr>
-        </div>
-        <div class="panel-body">
-            <div class="question-panel">
-                <div class="question-title">
-                    <h4><a href="questionMainPage.html">Question title</a></h4>
-                </div>
-                <div class="question-viewing">
-                    <article>(324 Viewing)</article>
-                </div>
-                <div class="question-content">
-                    <article>scing elit, sed do, sed do eiusmod temscing eli, it, sed do, sed do eiusmod temscing eli, it, sed do, sed do eiusmod temscing eli, it, sed do, sed do eiusmod temscing eli, it, sed do, sed do eiusmod temscing eli, it, sed do, sed do eiusmod temscing eli, it, sed do, sed do eiusmod temscing eli, sed do eiusmod temscing eli, sed do eiusmod temscing eli eiusmod temscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</article>
-                </div>
-            </div>
-            <hr>
-            <div class="active-user">
-                <div class="author">Author: <a href="#">pesho</a></div>
-                <div class="date">10.02.2014 09:45:34</div>
-            </div>
-            <hr>
-        </div>
+        {{/questions}}
     </div>
 </article>

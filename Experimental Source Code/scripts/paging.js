@@ -6,6 +6,11 @@ define (function () {
             return getResultsOfSpecificPage(url);
         };
 
+        var getQuestionById = function (id) {
+            url = 'https://api.parse.com/1/classes/question/' + id +'?include=author,category';
+            return getResultsOfSpecificPage(url);
+        };
+
         var getUsersOfSpecificPage = function (page, resultsOfPage) {
             var skip = (page - 1) * resultsOfPage;
             return getResultsOfSpecificPage('https://api.parse.com/1/users?limit=' + resultsOfPage + '&skip=' + skip);
@@ -13,7 +18,7 @@ define (function () {
 
         var getQuestionsOfSpecificPageByCategory = function (page, resultsOfPage, categoryId) {
             var skip = (page - 1) * resultsOfPage;
-            url = 'https://api.parse.com/1/classes/question?where={"category":{"__type":"Pointer","className":"category","objectId":"' + categoryId + '"}}&limit=' + resultsOfPage + '&skip=' + skip;
+            url = 'https://api.parse.com/1/classes/question?include=author,category&where={"category":{"__type":"Pointer","className":"category","objectId":"' + categoryId + '"}}&limit=' + resultsOfPage + '&skip=' + skip;
             return getResultsOfSpecificPage(url);
         };
 
@@ -25,7 +30,7 @@ define (function () {
 
         var getAnswersOfSpecificPageByQuestion = function (page, resultsOfPage, questionId) {
             var skip = (page - 1) * resultsOfPage;
-            url = 'https://api.parse.com/1/classes/answer?where={"question":{"__type":"Pointer","className":"question","objectId":"' + questionId + '"}}&limit=' + resultsOfPage + '&skip=' + skip;
+            url = 'https://api.parse.com/1/classes/answer?include=author,question&where={"question":{"__type":"Pointer","className":"question","objectId":"' + questionId + '"}}&limit=' + resultsOfPage + '&skip=' + skip;
             return getResultsOfSpecificPage(url);
         };
 
@@ -36,25 +41,15 @@ define (function () {
         };
 
         var getResultsOfSpecificPage = function (url) {
-            var dataInfo = [];
 
-            $.ajax({
+            return $.ajax({
                 headers: {
                     "X-Parse-Application-Id": "qMgTURpDZUZXbS8OyDfvICSCMS5YkkpuMn9vIlco",
                     "X-Parse-REST-API-Key": "KOWQQ2S9fB5Hx7bNjiv4bskSQrSuZvSniHUpF4Bb"
                 },
                 method: 'GET',
-                url: url,
-                async: false,
-                success: function (data) {
-                    dataInfo = data.results
-                },
-
-                error: function (error) {
-                    console.log(error);
-                }
+                url: url
             });
-            return dataInfo
         };
         return {
             getUsersOfSpecificPage: getUsersOfSpecificPage,
@@ -62,10 +57,10 @@ define (function () {
             getQuestionsOfSpecificPageByUser: getQuestionsOfSpecificPageByUser,
             getAnswersOfSpecificPageByQuestion: getAnswersOfSpecificPageByQuestion,
             getAnswersOfSpecificPageByUser: getAnswersOfSpecificPageByUser,
-            getCategories : getCategories
+            getCategories : getCategories,
+            getQuestionById : getQuestionById
         }
     })();
-    console.log(listItems.getCategories());
     return listItems;
 });
 
